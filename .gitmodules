@@ -1,0 +1,3 @@
+[submodule "sub/udc"]
+	path = sub/udc
+	url = https://github.com/swissnexSF/Urban-Data-Challenge.git
