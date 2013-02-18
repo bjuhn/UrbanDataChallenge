@@ -1,5 +1,5 @@
 ##Files
-* html
+* html/
   - website to visualize transportation data.
-* ruby
+* ruby/
   - ruby scripts to process data.
