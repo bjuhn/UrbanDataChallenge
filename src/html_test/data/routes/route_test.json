@@ -1,0 +1,21 @@
+{
+  "route_id": 123,
+  "name": "1 California",
+  "runs": [
+    {
+      "depart_time": "10/1/2012 10:31:00.881000 AM",
+      "arrive_time": "10/1/2012 10:33:00.881000 AM"
+      "segment": 1
+    },
+    {
+      "depart_time": "10/1/2012 10:31:00.881000 AM",
+      "arrive_time": "10/1/2012 10:33:00.881000 AM"
+      "segment": 2
+    },
+    {
+      "depart_time": "10/1/2012 10:31:00.881000 AM",
+      "arrive_time": "10/1/2012 10:33:00.881000 AM"
+      "segment": 3
+    }
+  ]
+}

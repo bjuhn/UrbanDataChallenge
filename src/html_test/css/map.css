@@ -1,0 +1,41 @@
+svg {
+  margin: 0;
+  padding: 0;
+}
+
+.routes {
+  fill: none;
+  stroke: #000;
+  stroke-linejoin: round;
+}
+
+.start {
+  fill: black;
+  stroke: none;
+  opacity: .5;
+}
+
+.end {
+  fill: none;
+  stroke: red;
+  stroke-width: 2;
+  opacity: .5;
+}
+
+.countries {
+  stroke: #fff;
+  stroke-width: 1;
+  fill: #ccc;
+}
+
+.city {
+  stroke-width: 1;
+  stoke: #fff;
+  fill: green;
+}
+
+.stop {
+  stroke-width: 1;
+  stoke: blue;
+  fill: green;
+}
