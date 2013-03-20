@@ -1,0 +1,43 @@
+html, body { 
+  margin:0; 
+  padding:0; 
+  width:100%; 
+  height:100%;
+  overflow: hidden;
+}
+
+.timebar {
+  height: 55px;
+  margin: 0;
+  padding: 0;
+}
+
+.timebar text {
+  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  stroke: #ccc;
+}
+
+.timebar line {
+  stroke: black;
+  stroke-width: 1; 
+}
+
+.timebar-progress {
+  fill: steelblue;
+}
+
+.timebar-box {
+  stroke: black;
+  stroke-width: 1; 
+  fill: transparent;
+}
+
+.clock {
+  height: 25px;
+  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: #888;
+}
+

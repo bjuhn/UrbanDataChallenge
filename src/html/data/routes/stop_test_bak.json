@@ -1,0 +1,58 @@
+[
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.47191,37.782587]
+    },
+    "passengerLoads" : [
+      { 
+        "pickup_time": "10/1/2012 10:31:00.881000 AM",
+        "count": 8
+      }
+    ]
+  },
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.46456,37.784989]
+    },
+    "passengerLoads" : [
+      { 
+        "pickup_time": "10/1/2012 10:33:00.881000 AM",
+        "count": 13
+      }
+    ]
+  },
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.45917,37.785676]
+    },
+    "passengerLoads" : [
+      { 
+        "pickup_time": "10/1/2012 10:37:00.881000 AM",
+        "count": 12
+      },
+      {
+        "pickup_time": "10/1/2012 10:43:00.881000 AM",
+        "count": 12
+      }
+    ]
+  },
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.44684,37.787381]
+    },
+    "passengerLoads" : [
+      { 
+        "pickup_time": "10/1/2012 10:40:00.881000 AM",
+        "count": 10
+      }
+    ]
+  }
+]
