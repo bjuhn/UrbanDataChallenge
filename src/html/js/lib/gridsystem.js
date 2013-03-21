@@ -1,6 +1,7 @@
-GridSystem = function(parent, cellCount) {
+GridSystem = function(parent, cellCount, heightMultiplier) {
   this.parent = parent;
   this.cellCount = cellCount;
+  this.heightMultiplier = heightMultiplier;
   var cols = [1,2,4,6,12];
   // this.dimension = Math.ceil(Math.sqrt(this.cellCount));
   this.dimension = this.cellCount;
@@ -20,7 +21,7 @@ GridSystem.prototype.createCells = function() {
   for(var i=0;i<this.cellCount;i++) {
     // var row = this.rows[Math.floor(i/this.dimension)]
     var row = this.rows[0]
-    this.cells.push(new GridCell(row, Math.floor(12/this.dimension)));
+    this.cells.push(new GridCell(row, Math.floor(12/this.dimension), this.heightMultiplier));
   }
 
 }
@@ -30,10 +31,10 @@ GridSystem.prototype.getGridCells = function() {
 }
 
 
-GridCell = function(parent, size) {
+GridCell = function(parent, size, heightMultiplier) {
   this.parent = parent;
   this.elm = this.parent.append("div").classed("span" + size + " grid_cell", true);
-  this.elm.style("height", (parseInt(this.elm.style("width")) * 1.0) + "px");
+  this.elm.style("height", (parseInt(this.elm.style("width")) * heightMultiplier) + "px");
 
 }
 

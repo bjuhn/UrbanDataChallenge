@@ -28,8 +28,13 @@ Bus.prototype.moveBus = function(run) {
 
   var self = this;
   var segment = self.route.getSegment(run["segment"]);
+  var segmentData = self.route.getSegmentData(run["segment"]);
   var len = segment.getTotalLength();
-  var duration = (new Date(run["arrive_time"]) - new Date(run["depart_time"])) / this.timeEventRegistry.getMultiplier();
+  var timeDiff = new Date(run["arrive_time"]) - new Date(run["depart_time"]);
+  var duration = (timeDiff) / this.timeEventRegistry.getMultiplier();
+  var speed = 60 / (timeDiff/1000/60) * segmentData["distance"]/1000;
+
+  this.route.updateAvgSpeed(speed);
 
   this.busElm.transition()
     .duration(duration)

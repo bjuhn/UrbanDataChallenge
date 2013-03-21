@@ -41,3 +41,32 @@ html, body {
   color: #888;
 }
 
+.statbars {
+  
+}
+
+.statbar {
+  stroke: orange;
+
+}
+.statbar-fill {
+  fill: steelblue;
+}
+
+.statbar-box {
+  stroke: black;
+  stroke-width: 1; 
+  fill: transparent;
+}
+
+.statbar-text {
+  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  stroke: #ccc; 
+}
+
+.statbar-val {
+  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  stroke: black; 
+}

@@ -4,6 +4,8 @@ Route = function(routeData, segmentData, gElm, path) {
   this.gElm = gElm;
   this.path = path;
 
+  this.avgSpeed = 0;
+  this.speedSets = 0;
   this.offset = 0;
   this.roadWidth = .001;
 }
@@ -32,6 +34,21 @@ Route.prototype.makeRoute = function() {
 
 }
 
+Route.prototype.updateAvgSpeed = function(speed) { 
+  var newSets = this.speedSets + 1;
+  this.avgSpeed = (this.avgSpeed * this.speedSets / newSets) + (speed * 1 / newSets);
+  this.speedSets++;
+}
+
 Route.prototype.getSegment = function(idx) { 
   return this.route[0][idx];
+}
+
+Route.prototype.getSegmentData = function(idx) { 
+  return this.segmentData["features"][idx];
+}
+
+
+Route.prototype.getAvgSpeed = function(idx) { 
+  return this.avgSpeed.toFixed(2);
 }

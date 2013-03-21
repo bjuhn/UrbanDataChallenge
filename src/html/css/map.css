@@ -37,8 +37,12 @@ svg {
 
 .stop {
   fill: orange;
+  stroke-width: .0004;
+  stroke: blue;
 }
 
 .bus {
   fill: red;
+  stroke-width: .0002;
+  stroke: orange;
 }
