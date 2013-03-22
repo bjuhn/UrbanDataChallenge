@@ -47,7 +47,7 @@ TimeEventRegistry.prototype.run = function() {
   this.timeCheckPoint = curTime;
   this.mockTime = newMockTime;
   if(this.eventCursor < this.events.length) {
-    setInterval(bind(this, this.run), 200);  
+    setInterval(bind(this, this.run), 500);  
   }
 }
 

@@ -1,7 +1,8 @@
-Stop = function (stopData, gElm, proj, timeEventRegistry) {
+Stop = function (stopData, gElm, proj, timeEventRegistry, route) {
   this.stopData = stopData;
   this.gElm = gElm;
   this.proj = proj;
+  this.route = route;
   this.timeEventRegistry = timeEventRegistry;
   this.coords = this.proj([this.stopData.geometry.coordinates[0], this.stopData.geometry.coordinates[1]]);
   this.maxLoad = 14;
@@ -19,6 +20,8 @@ Stop.prototype.registerTimeEvents = function() {
       .register(lastTime, 
                 bind(this, this.startWaiting, load["count"], new Date(lastTime), new Date(load["pickup_time"])),
                 load["pickup_time"]);
+    this.timeEventRegistry
+      .register(load["pickup_time"], bind(this.route, this.route.updatePassengerCount, load["count"]), load["pickup_time"]);
     lastTime = load["pickup_time"];
   }
 }
@@ -38,12 +41,10 @@ Stop.prototype.start = function() {
 }
 
 Stop.prototype.startWaiting = function(count, startTime, pickupTime) {
-  // alert(startTime);
   var duration = (pickupTime.getTime() - startTime.getTime()) / timeEventRegistry.getMultiplier();
   var size = this.size + (this.size * (count/this.maxLoad));
-
   var self = this;
-
+  
   this.stopElm.attr("r", this.size)
     .transition()
     .duration(duration)

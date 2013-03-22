@@ -1,3 +1,4 @@
+
 window.onload = function() {
   queue()
     .defer(d3.json, "data/sf2.geojson")
@@ -24,25 +25,30 @@ function loadData(error, sf, busData, routeData, routeSegmentData, stopData) {
       .scale(1 << 9);
     map = new Map(topCells[i].getElm(), proj);
     map.addFeatures(sf.features, "city");
+
     map.zoomTo(sf, 0, .9);
     promise.addCall(map, map.zoomTo, [sf, 0, .9], false);
-    
+
     var route = new Route(routeData, routeSegmentData, map.getGElm(), map.getPath());
     route.makeRoute();
     for(var j=0;j<busData.length;j++) {
       var bus = new Bus(busData[j], map.getGElm(), route, timeEventRegistry);
     }
     for(var j=0;j<stopData.length;j++) {
-      var stop = new Stop(stopData[j], map.getGElm(), proj, timeEventRegistry);
+      var stop = new Stop(stopData[j], map.getGElm(), proj, timeEventRegistry, route);
     }
     var metrics = [
-      {name: "Avg Speed", range: [0, 100], val: bind(route, route.getAvgSpeed)},
-      {name: "Bus Bunching", range: [0, 100], val: bind(route, route.getAvgSpeed)}
+      {name: "Avg Speed", range: [0, 100]},
+      {name: "Passengers", range: [0, 300]}
     ]
-    var statBars = new StatBars(bottomCells[i].getElm(), metrics, timeEventRegistry)
+    var statBars = new StatBars(bottomCells[i].getElm(), metrics)
 
-    promise.addCall(map, map.zoomTo, [routeSegmentData, 200, .8], false);
+    route.bind("changeAvgSpeed", bind(statBars.getBar(0), statBars.getBar(0).update));
+    route.bind("changePassengers", bind(statBars.getBar(1), statBars.getBar(1).update));
+
     promise.addCall(map, map.addImage, [], true);
+    promise.addCall(map, map.zoomTo, [routeSegmentData, 200, .8], false);
+
   }
 
   timeBar = new TimeBar(timeEventRegistry, d3.select('#timebar'));

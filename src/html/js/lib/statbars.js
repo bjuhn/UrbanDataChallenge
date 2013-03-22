@@ -1,4 +1,4 @@
-StatBars = function(elm, metrics, timeEventRegistry) {
+StatBars = function(elm, metrics) {
   this.elm = elm;
   this.metrics = metrics;
   this.bars = [];
@@ -18,15 +18,8 @@ StatBars = function(elm, metrics, timeEventRegistry) {
       .attr("y", this.barOffset);
     this.bars.push(new StatBar(container, metrics[i], this.barHeight))
   }
-  timeEventRegistry
-    .register(timeEventRegistry.getStartDate(), 
-              bind(this, this.start),
-              timeEventRegistry.getEndDate());
-
 }
 
-StatBars.prototype.start = function() {
-  for(var i=0;i<this.bars.length;i++) {
-    this.bars[i].start();
-  }
+StatBars.prototype.getBar = function(idx) {
+  return this.bars[idx];
 }

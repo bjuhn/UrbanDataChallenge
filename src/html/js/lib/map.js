@@ -18,8 +18,6 @@ Map = function(container, proj) {
     .style("height", this.height)
     .style("fill", 'url(#tile-water)');
   this.addPattern('tile-water', 'images/ocean3.png', 1600, 982);
-
-
 }
 
 
@@ -75,14 +73,19 @@ Map.prototype.bind = function(action, func) {
 }
 
 Map.prototype.addImage = function() {
-  // var coords = this.proj([-102.456875,37.798255]);
-  // alert(coords[0] + " : " + coords[1])
-  // this.svg.append("svg:image")
-  //     .attr("xlink:href", "http://www.e-pint.com/epint.jpg")
-  //     .attr("x", coords[0])
-  //     .attr("y", coords[1])
-  //     .attr("width", 150)
-  //     .attr("height", 200);
+ // var coords = this.proj([-122.515, 37.816]);
+ // // var coords = this.proj([37.816,-122.515]);
+ // var coords2 = this.proj([-122.378, 37.707]);
+ // var w = Math.abs(coords[0] - coords2[0]);
+ // var h = Math.abs(coords[1] - coords2[1]);
+  
+ //  alert(coords[0] + " : " + coords[1])
+ //  this.g.append("svg:image")
+ //      .attr("xlink:href", "images/M-SF-50000-01.jpg")
+ //      .attr("x", coords[0])
+ //      .attr("y", coords[1])
+ //      .attr("width", .5)
+ //      .attr("height", .1);
 }
 
 Map.prototype.getGElm = function() {
@@ -99,7 +102,7 @@ Map.prototype.addPattern = function(name, img, iwidth, iheight, dwidth, dheight)
   this.svg.append('svg:defs')
     .append('svg:pattern')
     .attr('id', name)
-    .attr('patternUnits','userSpaceOnUse')
+    .attr('patternUnits','objectBoundingBox')
     .attr('width', dwidth)
     .attr('height', dheight)
     .append('svg:image')

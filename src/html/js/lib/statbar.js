@@ -37,17 +37,8 @@ StatBar = function(gElm, metric, barHeight) {
 
 }
 
-StatBar.prototype.start = function() {
-  this.updateStats();
-}
-
-StatBar.prototype.updateStats = function() {
-  var val = this.metric.val();
-  if(val != null) {
+StatBar.prototype.update = function(val) {
     this.val.text(val)
     this.bar.transition().duration(800)
-      .attr("width", val/this.metric.range[1] * this.box.attr("width"))
-    setInterval(bind(this, this.updateStats), 1000);
-  }
+      .attr("width", val/this.metric.range[1] * this.box.attr("width"));
 }
-

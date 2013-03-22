@@ -5,9 +5,11 @@ Route = function(routeData, segmentData, gElm, path) {
   this.path = path;
 
   this.avgSpeed = 0;
+  this.passengerCount = 0;
   this.speedSets = 0;
   this.offset = 0;
   this.roadWidth = .001;
+  this.events = new EventRegistry();
 }
 
 Route.prototype.makeRoute = function() {
@@ -31,13 +33,17 @@ Route.prototype.makeRoute = function() {
     .style("stroke-dasharray" , this.roadWidth+","+this.roadWidth)
     .style("stroke-width", this.roadWidth/4)
     .attr("d", this.path);
+}
 
+Route.prototype.bind = function(eventName, func) {
+  this.events.bind(eventName, func);
 }
 
 Route.prototype.updateAvgSpeed = function(speed) { 
   var newSets = this.speedSets + 1;
   this.avgSpeed = (this.avgSpeed * this.speedSets / newSets) + (speed * 1 / newSets);
   this.speedSets++;
+  this.events.fire("changeAvgSpeed", this.avgSpeed.toFixed(2));
 }
 
 Route.prototype.getSegment = function(idx) { 
@@ -48,7 +54,7 @@ Route.prototype.getSegmentData = function(idx) {
   return this.segmentData["features"][idx];
 }
 
-
-Route.prototype.getAvgSpeed = function(idx) { 
-  return this.avgSpeed.toFixed(2);
+Route.prototype.updatePassengerCount = function(count) { 
+  this.passengerCount = this.passengerCount + count;
+  this.events.fire("changePassengers", this.passengerCount);
 }
