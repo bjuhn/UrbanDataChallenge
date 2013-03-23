@@ -4,7 +4,7 @@ StatBar = function(gElm, metric, barHeight) {
   this.barHeight = barHeight;
   this.textOffset = 120;
   this.rightOffset = 20;
-  this.textTopOffset = 9;
+  this.textTopOffset = 5;
   var w = this.gElm.attr('width');
 
   this.bar = this.gElm.append("rect")
