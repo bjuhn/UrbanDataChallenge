@@ -3,8 +3,8 @@ Map = function(container, proj) {
   this.proj = proj
   this.road_width = 8;
 
-  this.width = parseInt(this.container.style('width'));
-  this.height = parseInt(this.container.style('height'))
+  this.width = parseInt(this.container.style('width')-2);
+  this.height = parseInt(this.container.style('height')-2)
 
   this.path = d3.geo.path()
     .projection(this.proj);

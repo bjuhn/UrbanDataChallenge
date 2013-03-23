@@ -10,20 +10,38 @@ window.onload = function() {
 }
 // TODO, handle multiple buses
 function loadData(error, sf, busData, routeData, routeSegmentData, stopData) {
-  var topGrid = new GridSystem(d3.select('#container'), 3, 1);
+  var cells = 3;
+
+  var cities = [{"lbl": "Geneva", "val": 0},
+                {"lbl": "San Francisco", "val": 1},
+                {"lbl": "Zurich", "val": 2}]
+
+  var routes = [{"lbl": "Test Route", "val": 0},
+                {"lbl": "1 California", "val": 1},
+                {"lbl": "43 Masonic", "val": 2}]
+
+
+  var topGrid = new GridSystem(d3.select('#container'), cells, .1);
   var topCells = topGrid.getGridCells();
-  var bottomGrid = new GridSystem(d3.select('#container'), 3, .4);
+  var midGrid = new GridSystem(d3.select('#container'), cells, 1);
+  var midCells = midGrid.getGridCells();
+  var bottomGrid = new GridSystem(d3.select('#container'), cells, .4);
   var bottomCells = bottomGrid.getGridCells();
 
   var promise = new Promise();
   timeEventRegistry = new TimeEventRegistry(d3.select('#clock'));
 
-  for(var i=0;i<topCells.length;i++) {
+  for(var i=0;i<cells;i++) {
+  
+    var header = new MapHeader(topCells[i].getElm());
+    var dropDown = new DropDown(header.getElm(), cities, 'City');
+    var dropDown = new DropDown(header.getElm(), routes, 'Route');
+
     var proj = d3.geo
       .mercator()
       .center([110,0])
       .scale(1 << 9);
-    map = new Map(topCells[i].getElm(), proj);
+    map = new Map(midCells[i].getElm(), proj);
     // map.addFeatures(sf.features, "city");
     map.addImage();
 
