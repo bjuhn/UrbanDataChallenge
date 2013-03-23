@@ -24,7 +24,8 @@ function loadData(error, sf, busData, routeData, routeSegmentData, stopData) {
       .center([110,0])
       .scale(1 << 9);
     map = new Map(topCells[i].getElm(), proj);
-    map.addFeatures(sf.features, "city");
+    // map.addFeatures(sf.features, "city");
+    map.addImage();
 
     map.zoomTo(sf, 0, .9);
     promise.addCall(map, map.zoomTo, [sf, 0, .9], false);
@@ -46,8 +47,7 @@ function loadData(error, sf, busData, routeData, routeSegmentData, stopData) {
     route.bind("changeAvgSpeed", bind(statBars.getBar(0), statBars.getBar(0).update));
     route.bind("changePassengers", bind(statBars.getBar(1), statBars.getBar(1).update));
 
-    promise.addCall(map, map.addImage, [], true);
-    promise.addCall(map, map.zoomTo, [routeSegmentData, 200, .8], false);
+    promise.addCall(map, map.zoomTo, [routeSegmentData, 1200, .95], false);
 
   }
 

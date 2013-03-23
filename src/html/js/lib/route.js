@@ -8,7 +8,7 @@ Route = function(routeData, segmentData, gElm, path) {
   this.passengerCount = 0;
   this.speedSets = 0;
   this.offset = 0;
-  this.roadWidth = .001;
+  this.roadWidth = .0005;
   this.events = new EventRegistry();
 }
 

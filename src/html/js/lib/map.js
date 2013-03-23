@@ -12,7 +12,9 @@ Map = function(container, proj) {
   this.svg = this.container
     .append("svg")
     .style("width", this.width)
-    .style("height", this.height);
+    .style("height", this.height)
+    .classed("map", true);
+
   this.g = this.svg.append("g")
     .style("width", this.width)
     .style("height", this.height)
@@ -41,7 +43,7 @@ Map.prototype.addPoint = function(lat, lng, size, styleClass) {
 
 Map.prototype.zoomTo = function(feature, duration, percentPad, callback) {
   var duration = duration || 0;
-  var percentPad = percentPad || .8;
+  var percentPad = percentPad || 1;
   var bbox = this.path.bounds(feature);
   var elmWidth = parseInt(this.svg.style('width'));
   var elmHeight = parseInt(this.svg.style('height'));
@@ -86,6 +88,17 @@ Map.prototype.addImage = function() {
  //      .attr("y", coords[1])
  //      .attr("width", .5)
  //      .attr("height", .1);
+ var coords = this.proj([-122.515, 37.816]);
+ var coords2 = this.proj([-122.378, 37.707]);
+ var w = Math.abs(coords[0] - coords2[0]);
+ var h = Math.abs(coords[1] - coords2[1]);
+ this.g.append("svg:image")
+      .attr("xlink:href", "images/M-SF-50000-01.jpg")
+      .attr("x", coords[0])
+      .attr("y", coords[1])
+      .attr("width", w)
+      .attr("height", h);
+
 }
 
 Map.prototype.getGElm = function() {

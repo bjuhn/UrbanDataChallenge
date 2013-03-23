@@ -1,6 +1,7 @@
-svg {
+.map {
   margin: 0;
   padding: 0;
+  background-color: #c3e7f7;
 }
 
 .routes {
