@@ -21,7 +21,7 @@ function loadData(error, sf, busData, routeData, routeSegmentData, stopData) {
                 {"lbl": "43 Masonic", "val": 2}]
 
 
-  var topGrid = new GridSystem(d3.select('#container'), cells, .1);
+  var topGrid = new GridSystem(d3.select('#container'), cells, .11);
   var topCells = topGrid.getGridCells();
   var midGrid = new GridSystem(d3.select('#container'), cells, 1);
   var midCells = midGrid.getGridCells();
