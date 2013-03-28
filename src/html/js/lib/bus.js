@@ -3,7 +3,12 @@ Bus = function(busData, gElm, route, timeEventRegistry) {
   this.gElm = gElm;
   this.route = route;
   this.timeEventRegistry = timeEventRegistry;
-  this.registerTimeEvents();
+}
+
+Bus.prototype.clear = function() {
+  if(this.busElm) this.busElm.remove();
+  this.busElm = null;
+  this.busData = null;
 }
 
 Bus.prototype.addBus = function() {
@@ -15,6 +20,7 @@ Bus.prototype.addBus = function() {
 
 Bus.prototype.registerTimeEvents = function() {
   var runs = this.busData.runs;
+
   for(var i=0;i<runs.length; i++) {
     var run = runs[i];
     this.timeEventRegistry.register(run["depart_time"], bind(this, this.moveBus, run),run["arrive_time"]);

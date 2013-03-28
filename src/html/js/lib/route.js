@@ -1,19 +1,77 @@
-Route = function(routeData, segmentData, gElm, path) {
-  this.routeData = routeData;
-  this.segmentData = segmentData;
+Route = function(gElm, path, timeEventRegistry, proj) {
   this.gElm = gElm;
   this.path = path;
+  this.timeEventRegistry = timeEventRegistry;
+  this.proj = proj;
 
-  this.avgSpeed = 0;
-  this.passengerCount = 0;
-  this.speedSets = 0;
+  this.reset();
   this.offset = 0;
   this.roadWidth = .0005;
   this.events = new EventRegistry();
 }
 
+Route.prototype.setRoute = function(routeData, busData, segmentData, stopData) {
+  this.clear();
+  this.routeData = routeData;
+  this.busData = busData;
+  this.segmentData = segmentData;
+  this.stopData = stopData;
+  this.makeRoute();
+
+  this.buses = [];
+  for(var j=0;j<busData.length;j++) {
+    // TODO: shouldn't be passing instance of this, should be binding events.
+    this.buses.push(new Bus(busData[j], this.gElm, this, this.timeEventRegistry));
+  }
+
+  this.stops = [];
+  for(var j=0;j<stopData.length;j++) {
+    this.stops.push(new Stop(stopData[j], this.gElm, this.proj, this.timeEventRegistry, this));
+  }
+
+}
+
+Route.prototype.registerTimeEvents = function() {
+  for(var i=0;i<this.buses.length;i++) {
+    this.buses[i].registerTimeEvents();
+  }
+  for(var i=0;i<this.stops.length;i++) {
+    this.stops[i].registerTimeEvents();
+  }
+}
+
+Route.prototype.reset = function() {
+  this.routeData = null;
+  this.busData = null;
+  this.segmentData = null;
+  this.stopData = null;
+  this.routeOutline = null;
+  this.route = null;
+  this.avgSpeed = 0;
+  this.passengerCount = 0;
+  this.speedSets = 0;
+  this.buses = null;
+  this.stops = null;
+}
+
+Route.prototype.clear = function() {
+  if(this.buses != null) {
+    for(var j=0;j<this.buses.length;j++) {
+        this.buses[j].clear();
+    }    
+  }
+  if(this.stops != null) {
+    for(var j=0;j<this.stops.length;j++) {
+      this.stops[j].clear();    
+    }
+  }
+  if (this.routeOutline) this.routeOutline.remove();
+  if (this.route) this.route.remove();
+  this.reset();
+}
+
 Route.prototype.makeRoute = function() {
-  this.gElm.append("g")
+  this.routeOutline = this.gElm.append("g")
     .attr("class", "routes")
     .selectAll("path")
     .data(this.segmentData.features)

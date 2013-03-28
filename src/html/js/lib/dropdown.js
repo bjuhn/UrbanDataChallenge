@@ -15,15 +15,14 @@ DropDown = function(elm, items, label) {
     .attr("role", "menu")
     .attr("aria-labelledby", "drop1");
 
-  this.items = [];
   this.events = new EventRegistry();
-  for(var i=0;i<items.length;i++) {
-    this.add(items[i].lbl, items[i].val)
-  }
+  this.setItems(items);
+
   this.bind("onselect", bind(this, this.changeLabel));
 }
 
-DropDown.prototype.changeLabel = function(lbl) {
+DropDown.prototype.changeLabel = function(item, lbl) {
+  lbl = lbl || item;
   this.label.text(lbl);
 }
 
@@ -35,16 +34,24 @@ DropDown.prototype.fire = function (key) {
   this.events.fire(key);
 }
 
+DropDown.prototype.setItems = function(items, labelKey, valKey) {
+  labelKey = labelKey || "lbl";
+  valKey = valKey || "val";
+  this.dropdown.selectAll('li').remove();
+  this.items = [];
+  for(var i=0;i<items.length;i++) {
+    this.add(items[i][labelKey], items[i][valKey], items[i])
+  }
+}
 
-
-DropDown.prototype.add = function(lbl, val) {
+DropDown.prototype.add = function(lbl, val, itemData) {
   var item = this.dropdown.append("li")
     .attr("role", "presentation")
   item.append("a")
     .attr("role", "menuitem")
     .attr("tabindex", "-1")
     .text(lbl)
-  item.on("click", bindArr(this.events, this.events.fire, ["onselect", lbl, val]));
+  item.on("click", bindArr(this.events, this.events.fire, ["onselect", itemData, lbl]));
 
   this.items.push(item);
 }

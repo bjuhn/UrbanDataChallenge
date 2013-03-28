@@ -41,10 +41,19 @@ Map.prototype.addPoint = function(lat, lng, size, styleClass) {
     cy: coords[1] });
 }
 
-Map.prototype.zoomTo = function(feature, duration, percentPad, callback) {
+Map.prototype.zoomToFeature = function(feature, duration, percentPad, callback) {
+  this.zoomToInt(this.path.bounds(feature), duration, percentPad, callback);
+
+}
+
+Map.prototype.zoomToBounds = function(bounds, duration, percentPad, callback) {
+  this.zoomToInt([this.proj(bounds[0]), this.proj(bounds[1])], duration, percentPad, callback);
+}
+
+Map.prototype.zoomToInt = function(bbox, duration, percentPad, callback) {
   var duration = duration || 0;
   var percentPad = percentPad || 1;
-  var bbox = this.path.bounds(feature);
+
   var elmWidth = parseInt(this.svg.style('width'));
   var elmHeight = parseInt(this.svg.style('height'));
 
@@ -62,7 +71,6 @@ Map.prototype.zoomTo = function(feature, duration, percentPad, callback) {
   
   var scale = "scale(" + zoomScaleFactor + ") ";
   var transform = "translate(" + xZoomOffset + "," + yZoomOffset + ")";
-  
 
   this.g.transition()
     .duration(duration)
@@ -74,28 +82,15 @@ Map.prototype.bind = function(action, func) {
   this.svg.on(action, func);  
 }
 
-Map.prototype.addImage = function() {
- // var coords = this.proj([-122.515, 37.816]);
- // // var coords = this.proj([37.816,-122.515]);
- // var coords2 = this.proj([-122.378, 37.707]);
- // var w = Math.abs(coords[0] - coords2[0]);
- // var h = Math.abs(coords[1] - coords2[1]);
-  
- //  alert(coords[0] + " : " + coords[1])
- //  this.g.append("svg:image")
- //      .attr("xlink:href", "images/M-SF-50000-01.jpg")
- //      .attr("x", coords[0])
- //      .attr("y", coords[1])
- //      .attr("width", .5)
- //      .attr("height", .1);
- var coords = this.proj([-122.515, 37.816]);
- var coords2 = this.proj([-122.378, 37.707]);
- var w = Math.abs(coords[0] - coords2[0]);
- var h = Math.abs(coords[1] - coords2[1]);
- this.g.append("svg:image")
-      .attr("xlink:href", "images/M-SF-50000-01.jpg")
-      .attr("x", coords[0])
-      .attr("y", coords[1])
+Map.prototype.addImage = function(img, bounds) {
+ var nw = this.proj(bounds[0]);
+ var se = this.proj(bounds[1]);
+ var w = Math.abs(nw[0] - se[0]);
+ var h = Math.abs(nw[1] - se[1]);
+ return this.g.append("svg:image")
+      .attr("xlink:href", img)
+      .attr("x", nw[0])
+      .attr("y", nw[1])
       .attr("width", w)
       .attr("height", h);
 

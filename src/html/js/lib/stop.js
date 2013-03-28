@@ -8,7 +8,6 @@ Stop = function (stopData, gElm, proj, timeEventRegistry, route) {
   this.maxLoad = 14;
   this.size = .0012;
   this.makeStop();
-  this.registerTimeEvents();
 }
 
 Stop.prototype.registerTimeEvents = function() {
@@ -24,6 +23,11 @@ Stop.prototype.registerTimeEvents = function() {
       .register(load["pickup_time"], bind(this.route, this.route.updatePassengerCount, load["count"]), load["pickup_time"]);
     lastTime = load["pickup_time"];
   }
+}
+
+Stop.prototype.clear = function() {
+  this.stopElm.remove();
+  this.startTime = null;
 }
 
 Stop.prototype.makeStop = function() {
