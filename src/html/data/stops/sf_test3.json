@@ -1,0 +1,75 @@
+[
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.46791,37.786587]
+    },
+    "passengerLoads" : [
+      {
+        "pickup_time": "10/1/2012 10:37:00 AM",
+        "count": 13
+      }
+    ]
+  },
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.46056,37.788989]
+    },
+    "passengerLoads" : [
+      { 
+        "pickup_time": "10/1/2012 10:33:00 AM",
+        "count": 13
+      },
+      {
+        "pickup_time": "10/1/2012 10:38:00 AM",
+        "count": 8
+      }
+    ]
+  },
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.45517,37.789676]
+    },
+    "passengerLoads" : [
+      {
+        "pickup_time": "10/1/2012 10:33:00 AM", 
+        "count": 5
+      },
+
+      { 
+        "pickup_time": "10/1/2012 10:37:00 AM",
+        "count": 12
+      },
+      {
+        "pickup_time": "10/1/2012 10:40:00 AM",
+        "count": 6
+      },
+      {
+        "pickup_time": "10/1/2012 10:43:00 AM",
+        "count": 9
+      }
+    ]
+  },
+  {
+    "type":"Feature",
+    "geometry":{
+      "type":"Point",
+      "coordinates":[-122.44284,37.791381]
+    },
+    "passengerLoads" : [
+      { 
+        "pickup_time": "10/1/2012 10:40:00 AM",
+        "count": 10
+      },
+      {
+        "pickup_time": "10/1/2012 10:44:00 AM",
+        "count": 8
+      }
+    ]
+  }
+]

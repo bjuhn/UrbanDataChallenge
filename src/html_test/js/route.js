@@ -64,7 +64,7 @@ Route.prototype.startAnimateTestBus = function() {
       return function(t) {
         var p = self.route.node().getPointAtLength(self.len * t)
         document.title = "translate(" + [p.x, p.y] + ")";
-//        return "translate(" + [p.x, p.y] + ")";
+       return "translate(" + [p.x, p.y] + ")";
       }
     })
 }

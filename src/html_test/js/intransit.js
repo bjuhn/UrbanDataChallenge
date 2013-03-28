@@ -2,15 +2,16 @@ window.onload = function() {
   queue().defer(d3.json, "../../data/scheduled-arrivals.excerpt.json")
     .defer(d3.json, "../../data/sf.json")
     .defer(d3.json, "../../data/world-countries.json")
-    .defer(d3.json, "../../sub/udc/public-transportation/san-francisco/geo/topojson/routes.json")
+    .defer(d3.json, "data/geneva_routes.json")
     .await(loadData);
 }
 
 function loadData(error, test_point, sf, countries, sf_routes) {
-
+abcdef = sf_routes;
+alert(1);
   var gridSystem = new GridSystem(d3.select('#container'), 1);
   var cells = gridSystem.getGridCells();
-  var routes = topojson.object(sf_routes, sf_routes.objects.routes);
+  // var routes = topojson.object(sf_routes, sf_routes.objects.routes);
   var promise = new Promise();
 
   for(var i=0;i<cells.length;i++) {
@@ -25,14 +26,14 @@ function loadData(error, test_point, sf, countries, sf_routes) {
     d = sf;
     promise.addCall(map, map.addFeatures, [sf.features, "city"], true);
     // promise.addCall(map, map.zoomTo, [sf.features[0].geometries], false);
-
-    routeGeom = routes.geometries[0];
+// alert(routes.geometries.length);
+    routeGeom = sf_routes["features"][0];
     var route = new Route(routeGeom, map.getGElm(), map.getPath());
     promise.addCall(map, map.zoomTo, [routeGeom], false);
 
 
     promise.addCall(route, route.makeRoute, [], true);
-    promise.addCall(route, route.startAnimateTestBus, [], true);
+    promise.addCall(route, route.startAnimateBus, [], true);
 
 
     
