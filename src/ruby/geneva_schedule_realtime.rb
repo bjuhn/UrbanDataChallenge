@@ -6,11 +6,14 @@ class GenevaScheduleRealtime
   end
 
   def get_route_stops route_code
-    put 'begin: GenevaScheduleRealtime.get_route_stops'
+    puts 'begin: GenevaScheduleRealtime.get_route_stops'
+
+    tmp_filename = "/tmp/filter_schedule.csv"
+    cmd = 'awk -F "\"*,\"*" \'{if($2==1) print $0}\' %s > %s' % [@filename, tmp_filename]
+    `#{cmd}`    
     route_stops = []
-    CSV.foreach(@filename,{:headers=>:first_row}) do |line|
-      mapped_line = map_line(line)
-      route_stops.push mapped_line if mapped_line[:routeCode] == route_code
+    CSV.foreach(tmp_filename,{:headers=>"first_row"}) do |line|
+      route_stops.push map_line(line)
     end
     puts 'end: GenevaScheduleRealtime.get_route_stops'
     route_stops
@@ -18,24 +21,24 @@ class GenevaScheduleRealtime
 
   def map_line line
     {
-      :date => line[0],
-      :routeCode => line[1],
-      :serviceVehicle => line[2],
-      :tripId => line[3],
-      :vehicleId => line[4],
-      :patternId => line[5],
-      :tripDirection => line[6],
-      :tripLength => line[7],
-      :stopSequenceNr => line[8],
-      :stopCode => line[9],
-      :stopLength => line[10],
-      :stopTimeSchedule => line[11],
-      :stopTimeReal => line[12],
-      :passengerCountTripUp => line[13],
-      :passengerCountTripDown => line[14],
-      :passengerCountStopUp => line[15],
-      :passengerCountStopDown => line[16],
-      :passengerLoadStop => line[17]
+      "date" => line[0],
+      "routeCode" => line[1],
+      "serviceVehicle" => line[2],
+      "tripId" => line[3],
+      "vehicleId" => line[4],
+      "patternId" => line[5],
+      "tripDirection" => line[6],
+      "tripLength" => line[7],
+      "stopSequenceNr" => line[8],
+      "stopCode" => line[9],
+      "stopLength" => line[10],
+      "stopTimeSchedule" => line[11],
+      "stopTimeReal" => line[12],
+      "passengerCountTripUp" => line[13],
+      "passengerCountTripDown" => line[14],
+      "passengerCountStopUp" => line[15],
+      "passengerCountStopDown" => line[16],
+      "passengerLoadStop" => line[17]
     }
 
   end
