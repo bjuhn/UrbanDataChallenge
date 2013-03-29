@@ -6,8 +6,8 @@
 
 .routes {
   fill: none;
-  stroke: #000;
-  opacity: .2;
+  stroke: blue;
+  opacity: 1;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
