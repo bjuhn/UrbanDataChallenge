@@ -1,12 +1,12 @@
 .map {
   margin: 0;
   padding: 0;
-  background-color: #c3e7f7;
+  
 }
 
 .routes {
   fill: none;
-  stroke: blue;
+  stroke: black;
   opacity: 1;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -38,13 +38,14 @@
 }
 
 .stop {
-  fill: orange;
-  stroke-width: .0004;
-  stroke: blue;
+  fill: black;
+  opacity: .6;
+/*  stroke-width: .0004;
+  stroke: blue;*/
 }
 
 .bus {
-  fill: red;
-  stroke-width: .0002;
-  stroke: orange;
+  fill: white;
+  stroke-width: .0004;
+  stroke: black;
 }

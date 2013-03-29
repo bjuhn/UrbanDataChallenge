@@ -28,11 +28,15 @@ Bus.prototype.registerTimeEvents = function() {
 }
 
 Bus.prototype.moveBus = function(run) {
+  if(run["segment"] == null) {
+    return;
+  }
   if(typeof this.busElm == "undefined") {
     this.addBus();
   }
 
   var self = this;
+
   var segment = self.route.getSegment(run["segment"]);
   var segmentData = self.route.getSegmentData(run["segment"]);
   var len = segment.getTotalLength();

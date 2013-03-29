@@ -19,7 +19,7 @@ function loadData(error, cityData) {
   timeBar = new TimeBar(timeEventRegistry, d3.select('#timebar'));
   cityMaps = [];
   for(var i=0;i<cells;i++) {
-    cityMaps.push(new CityMap(1, cityData, topCells[i].getElm(), midCells[i].getElm(), botCells[i].getElm(),
+    cityMaps.push(new CityMap(0, cityData, topCells[i].getElm(), midCells[i].getElm(), botCells[i].getElm(),
                               promise, timeEventRegistry));
   }
 }
@@ -28,6 +28,8 @@ function start() {
   for(var i=0;i<cityMaps.length;i++) {
     cityMaps[i].registerTimeEvents();
   }
+  timeEventRegistry.sort();
   timeBar.ready();
+  timeEventRegistry.sort();
   timeEventRegistry.start(); 
 }
