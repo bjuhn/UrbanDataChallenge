@@ -15,3 +15,7 @@ function bindArr(scope, fn, args) {
 function toArray(obj) {
     return Array.prototype.slice.call(obj);
 }
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random((new Date()).getTime()) * (max - min + 1)) + min;
+}

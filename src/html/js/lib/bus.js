@@ -44,7 +44,12 @@ Bus.prototype.moveBus = function(run) {
   var duration = (timeDiff) / this.timeEventRegistry.getMultiplier();
   var speed = 60 / (timeDiff/1000/60) * segmentData["distance"]/1000;
 
-  this.route.updateAvgSpeed(speed);
+  
+
+  // document.title = d3.geo.length(run["segment"]);
+  if (!isNaN(speed)) {
+    this.route.updateAvgSpeed(speed);  
+  }
 
   this.busElm.transition()
     .duration(duration)

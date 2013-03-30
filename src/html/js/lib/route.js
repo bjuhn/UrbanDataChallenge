@@ -45,7 +45,6 @@ Route.prototype.reset = function() {
   this.busData = null;
   this.segmentData = null;
   this.stopData = null;
-  this.routeOutline = null;
   this.route = null;
   this.avgSpeed = 0;
   this.passengerCount = 0;
@@ -65,31 +64,17 @@ Route.prototype.clear = function() {
       this.stops[j].clear();    
     }
   }
-  if (this.routeOutline) this.routeOutline.remove();
   if (this.route) this.route.remove();
   this.reset();
 }
 
 Route.prototype.makeRoute = function() {
-  this.routeOutline = this.gElm.append("g")
-    .attr("class", "routes")
-    .selectAll("path")
-    .data(this.segmentData.features)
-    .enter()
-    .append("path")
-    .style("stroke", 'url(#tile-asphalt)')
-    .style("stroke-width", this.roadWidth)
-    .attr("d", this.path);
-
   this.route = this.gElm.append("g")
     .attr("class", "routes")
     .selectAll("path")
     .data(this.segmentData.features)
     .enter()
     .append("path")
-    .style("stroke", "#b2b219")
-    .style("stroke-dasharray" , this.roadWidth+","+this.roadWidth)
-    .style("stroke-width", this.roadWidth/4)
     .attr("d", this.path);
 }
 

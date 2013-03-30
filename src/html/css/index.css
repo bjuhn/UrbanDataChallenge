@@ -25,13 +25,13 @@ html, body {
 }
 
 .timebar-progress {
-  fill: steelblue;
+  fill: #db0015;
 }
 
 .timebar-box {
-  stroke: black;
+  stroke: #bbbbba;
   stroke-width: 1; 
-  fill: transparent;
+  fill: white;
 }
 
 .clock {
@@ -55,9 +55,9 @@ html, body {
 }
 
 .statbar-box {
-  stroke: black;
+  stroke: #bbbbba;
   stroke-width: 1; 
-  fill: transparent;
+  fill: white;
 }
 
 .statbar-text {

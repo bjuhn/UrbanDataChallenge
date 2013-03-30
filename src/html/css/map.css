@@ -10,6 +10,7 @@
   opacity: 1;
   stroke-linejoin: round;
   stroke-linecap: round;
+  stroke-width: .0005;
 }
 
 .start {
@@ -41,8 +42,9 @@
   fill: black;
   opacity: .6;
 /*  stroke-width: .0004;
-  stroke: blue;*/
+  stroke: blue;  */
 }
+
 
 .bus {
   fill: white;

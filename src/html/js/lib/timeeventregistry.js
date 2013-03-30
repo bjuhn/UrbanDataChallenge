@@ -2,7 +2,7 @@ TimeEventRegistry = function(clockElm) {
   this.clockElm = clockElm;
   this.mockTime = new Date();
   this.events = [];
-  this.timeMultiplier = 60;
+  this.timeMultiplier = 20;
   this.eventCursor = 0;
   this.format = d3.time.format('%b %e %I:%M %p')
 }
