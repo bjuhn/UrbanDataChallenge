@@ -9,16 +9,16 @@ TimeBar = function(timeEventRegistry, elm) {
   this.barHeight = 20;
   this.format = d3.time.format('%b %e %I:%M %p')
 
+  this.svg.append("rect")
+    .attr("width", this.w)
+    .attr("height", this.barHeight)
+    .classed("timebar-box", true);
+
   this.bar = this.svg.append("rect")
     .attr("width", 0)
     .attr("height", this.barHeight-2)
     .attr("y", 1)
     .classed("timebar-progress", true);
-
-  this.svg.append("rect")
-    .attr("width", this.w)
-    .attr("height", this.barHeight)
-    .classed("timebar-box", true);
 
   this.svg.append("line")
     .attr("x1", 1)
@@ -72,7 +72,6 @@ TimeBar.prototype.ready = function() {
 }
 
 TimeBar.prototype.start = function() {
-
   this.bar.transition()
     .duration(this.duration)
     .ease("linear")

@@ -7,18 +7,20 @@ StatBar = function(gElm, metric, barHeight) {
   this.textTopOffset = 5;
   var w = this.gElm.attr('width');
 
-  this.bar = this.gElm.append("rect")
-    .attr("width", 0)
-    .attr("height", this.barHeight-2)
-    .attr("y", 1)
-    .attr("x", this.textOffset)
-    .classed("statbar-fill", true); 
+
 
   this.box = this.gElm.append("rect")
     .attr("x", this.textOffset)
     .attr("width", w - this.textOffset - this.rightOffset)
     .attr("height", barHeight)
     .classed("statbar-box", true);
+
+  this.bar = this.gElm.append("rect")
+    .attr("width", 0)
+    .attr("height", this.barHeight-2)
+    .attr("y", 1)
+    .attr("x", this.textOffset)
+    .classed("statbar-fill", true); 
 
   this.gElm.append("text")
     .text(metric.name)

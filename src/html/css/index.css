@@ -51,11 +51,13 @@ html, body {
 
 }
 .statbar-fill {
-  fill: steelblue;
+  fill: #dc0015;
+  stroke: #ac0010;
+  stroke-width: 1px;
 }
 
 .statbar-box {
-  stroke: #bbbbba;
+  stroke: #6b5a57;
   stroke-width: 1; 
   fill: white;
 }

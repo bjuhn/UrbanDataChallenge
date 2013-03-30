@@ -32,4 +32,5 @@ function start() {
   timeBar.ready();
   timeEventRegistry.sort();
   timeEventRegistry.start(); 
+  timeBar.start();
 }

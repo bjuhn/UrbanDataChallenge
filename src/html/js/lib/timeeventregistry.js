@@ -2,7 +2,7 @@ TimeEventRegistry = function(clockElm) {
   this.clockElm = clockElm;
   this.mockTime = new Date();
   this.events = [];
-  this.timeMultiplier = 20;
+  this.timeMultiplier = 120;
   this.eventCursor = 0;
   this.format = d3.time.format('%b %e %I:%M %p')
 }
@@ -12,7 +12,7 @@ TimeEventRegistry.prototype.register = function(time, func, endTime) {
   var maxTime = (new Date('2012-10-04 12:00')).getTime();
   time = new Date(time);
   endTime = new Date(endTime);
-  if((time.getTime() > minTime && time.getTime() < maxTime) || (endTime.getTime() > minTime && endTime.getTime() < maxTime)){
+  if((time.getTime() > minTime && time.getTime() < maxTime) && (endTime.getTime() > minTime && endTime.getTime() < maxTime)){
     // alert(1);
     this.events.push({
       "time": time,
