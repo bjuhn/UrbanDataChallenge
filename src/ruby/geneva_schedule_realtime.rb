@@ -9,7 +9,7 @@ class GenevaScheduleRealtime
     puts 'begin: GenevaScheduleRealtime.get_route_stops'
 
     tmp_filename = "/tmp/filter_schedule.csv"
-    cmd = 'awk -F "\"*,\"*" \'{if($2==1) print $0}\' %s > %s' % [@filename, tmp_filename]
+    cmd = 'awk -F "\"*,\"*" \'{if($2==%s) print $0}\' %s > %s' % [route_code, @filename, tmp_filename]
     `#{cmd}`    
     route_stops = []
     CSV.foreach(tmp_filename,{:headers=>"first_row"}) do |line|

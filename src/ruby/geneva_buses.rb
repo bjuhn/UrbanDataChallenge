@@ -18,6 +18,7 @@ class GenevaBuses
         "depart_time" => stop["stopTimeReal"],
         "arrive_time" => nil,
         "load" => stop["passengerLoadStop"],
+        "on" => stop["passengerCountStopUp"],
         "segment" => nil,
         "stopCode" => stop["stopCode"],
         "tripDirection" => stop["tripDirection"]
@@ -35,6 +36,10 @@ class GenevaBuses
     new_bus = {"bus_id" => bus_id, "route_id" => @route_code, "runs" => []}
     @obj.push new_bus
     new_bus
+  end
+
+  def get_buses
+    @obj
   end
 
   def to_json
@@ -60,12 +65,18 @@ class GenevaBuses
         i = 0
         route.get_features.each{ |feature|
           next if run['coordinates'].nil?
-          first = feature['geometry']['coordinates'].first() 
+          delta = 0.000001
+          first = feature['geometry']['coordinates'].first()
+          first = first.first() if first.first().kind_of?(Array)
           last = feature['geometry']['coordinates'].last()
-          if run["tripDirection"] == 'A' and first[0] == run['coordinates'][0] and first[1] == run['coordinates'][1]
+          last = last.last() if last.last().kind_of?(Array)
+          coords = [run['coordinates'][0], run['coordinates'][1]]
+          # puts "%s %s" % [first, coords]
+          # puts feature
+          if run["tripDirection"] == 'R' and (first[0] - coords[0]).abs < delta and (first[1] - coords[1]).abs < delta
             run["segment"] = i
             break
-          elsif run["tripDirection"] == 'R' and last[0] == run['coordinates'][0] and last[1] == run['coordinates'][1]
+          elsif run["tripDirection"] == 'A' and (last[0] - coords[0]).abs < delta and (last[1] - coords[1]).abs < delta
             run["segment"] = i
             break
           end

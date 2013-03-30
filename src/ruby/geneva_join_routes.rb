@@ -2,21 +2,26 @@ require 'trollop'
 require 'json'
 require './geneva_route'
 
-
 class GenevaJoinRoutes
 
   def self.run_argv argv = ARGV
     opts = Trollop::options do
-      opt :routeNum, "Route number to process", :type => Integer, :default => 1
+      opt :routeNum, "Route number to process", :type => String, :default => "1"
     end
 
-    opts[:file1] = '../../data/route_shapes/geneva/route%d/Route%dDirASplit.shp' % [opts[:routeNum], opts[:routeNum]]
-    opts[:file2] = '../../data/route_shapes/geneva/route%d/Route%dDirRSplit.shp' % [opts[:routeNum], opts[:routeNum]]
-    opts[:out] = '../html/data/segments/gen_%d.json' % [opts[:routeNum]]
+    filename1 = '../../data/route_shapes/geneva/route%s/Route%sDirASplit.shp' % [opts[:routeNum], opts[:routeNum]]
+    filename2 = '../../data/route_shapes/geneva/route%s/Route%sDirRSplit.shp' % [opts[:routeNum], opts[:routeNum]]
+    output = '../html/data/segments/gen_%s.json' % [opts[:routeNum]]
 
-    file1_geojson = gen_geojson opts[:file1]
-    file2_geojson = gen_geojson opts[:file2]
-    join_geojson_routes file1_geojson, file2_geojson, opts[:out]
+    tmp_filename1 = gen_geojson filename1
+    tmp_filename2 = gen_geojson filename2
+
+    route1 = GenevaRoute.new File.read(tmp_filename1)
+    route2 = GenevaRoute.new File.read(tmp_filename2)
+    route1.add_features route2.get_features
+    puts 'writing file'
+    File.write output, route1.to_json
+
   end
 
   def self.gen_geojson filename
@@ -28,14 +33,6 @@ class GenevaJoinRoutes
       exit $?.exitstatus
     end
     new_file
-  end
-
-  def self.join_geojson_routes file1, file2, output
-    route1 = GenevaRoute.new File.read(file1)
-    route2 = GenevaRoute.new File.read(file2)
-    route1.add_features route2.get_features
-    File.write output, route1.to_json
-    puts "Wrote file to: %s" % [output]
   end
 
 end
