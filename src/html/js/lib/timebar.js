@@ -1,11 +1,14 @@
 TimeBar = function(timeEventRegistry, elm, startDate, endDate) {
   this.timeEventRegistry = timeEventRegistry;
   this.elm = elm;
-  this.svg = this.elm.append("svg")
-              .classed("timebar", true);
-
   this.h = parseInt(this.elm.style('height'), 10);
   this.w = parseInt(this.elm.style('width'), 10);  
+
+  this.svg = this.elm.append("svg")
+    .style("width", this.w + "px")
+    .style("height", this.h + "px")
+    .classed("timebar", true);
+
   this.barHeight = 5;
   this.textOffset = 60;
   this.textTop = 26;

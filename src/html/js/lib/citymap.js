@@ -36,7 +36,6 @@ CityMap.prototype.setup = function() {
   this.route = new Route(this.map.getGElm(), this.map.getPath(), this.timeEventRegistry, this.proj);
   this.route.bind("changeAvgSpeed", bind(this.statBars.getBar(0), this.statBars.getBar(0).update));
   this.route.bind("changePassengers", bind(this.statBars.getBar(1), this.statBars.getBar(1).update));
-
 }
 
 CityMap.prototype.selectCity = function(city) {
