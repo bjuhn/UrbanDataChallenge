@@ -1,14 +1,15 @@
 DropDown = function(elm, items, label) {
   this.container = elm.append("li")
     .classed("dropdown", true);
-  var e1 = this.container.append("a")
+  var e1 = this.container.append("span")
     .attr("role", "buton")
     .classed("dropdown-toggle", true)
     .attr("data-toggle", "dropdown")
   this.label = e1.append("span")
     .text(label);
-  e1.append("b")
-    .classed("caret", true)
+  e1.append("img")
+    .attr("src", "images/carot.png")
+    .classed("dropdown-caret", true)
     .attr("id", "drop1");
   this.dropdown = this.container.append("ul")
     .classed("dropdown-menu", true)

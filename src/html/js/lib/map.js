@@ -3,8 +3,8 @@ Map = function(container, proj) {
   this.proj = proj
   this.road_width = 8;
 
-  this.width = parseInt(this.container.style('width')-2);
-  this.height = parseInt(this.container.style('height')-2)
+  this.width = parseInt(this.container.style('width')-2, 10);
+  this.height = parseInt(this.container.style('height')-2, 10)
 
   this.path = d3.geo.path()
     .projection(this.proj);
@@ -54,8 +54,8 @@ Map.prototype.zoomToInt = function(bbox, duration, percentPad, callback) {
   var duration = duration || 0;
   var percentPad = percentPad || 1;
 
-  var elmWidth = parseInt(this.svg.style('width'));
-  var elmHeight = parseInt(this.svg.style('height'));
+  var elmWidth = parseInt(this.svg.style('width'), 10);
+  var elmHeight = parseInt(this.svg.style('height'), 10);
 
   var bWidth = Math.abs(bbox[1][0] - bbox[0][0]);
   var bHeight = Math.abs(bbox[0][1] - bbox[1][1]);

@@ -101,3 +101,11 @@ Route.prototype.updatePassengerCount = function(count) {
   this.passengerCount = this.passengerCount + count;
   this.events.fire("changePassengers", this.passengerCount);
 }
+
+Route.prototype.getSegmentLength = function(idx) {
+  var segment = this.getSegment(idx);
+  if(typeof segment.totalLength == 'undefined') {
+    segment.totalLength = this.getSegment(idx).getTotalLength();  
+  }
+  return segment.totalLength;
+}

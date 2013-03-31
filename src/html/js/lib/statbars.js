@@ -9,7 +9,7 @@ StatBars = function(elm, metrics) {
               .classed("statbars", true)
               .attr("height", metrics.length * (this.barHeight + this.barOffset));
 
-  var w = parseInt(this.elm.style('width'));  
+  var w = parseInt(this.elm.style('width'), 10);  
   for(var i=0;i<metrics.length;i++) {
     var container = this.svg.append("g")
       .attr("transform", "translate(" + this.barLeftOffset + "," + (this.barOffset + ((this.barHeight + this.barOffset) * i)) + ")")

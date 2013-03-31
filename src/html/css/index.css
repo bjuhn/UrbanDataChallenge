@@ -1,22 +1,49 @@
+@font-face {
+  font-family: font_header;
+  src: url('swisblk.ttf');
+}
+
+@font-face {
+  font-family: font_general;
+  src: url('swisblkcn.ttf');
+}
+
 html, body { 
   margin:0; 
   padding:0; 
   width:100%; 
   height:100%;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #676661;
+  font-family: font_general,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13pt;
+  letter-spacing: 2pt;
+}
+
+.header {
+ padding-top: 17px;
+ font-family: font_header,"Helvetica Neue",Helvetica,Arial,sans-serif; 
+ color: #d80004;
+ font-size: 46pt;
+ letter-spacing: 5pt;
+ text-shadow: 1px 1px 2px rgba(0,0,0,.2), -1px -1px 1px rgba(255,255,255,.1);
+ /*text-shadow: 1px 1px 1px #555;*/
+}
+
+.race-views {
 }
 
 .timebar {
-  height: 55px;
+  height: 80px;
   margin: 0;
   padding: 0;
 }
 
 .timebar text {
-  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: bold;
-  stroke: #ccc;
+  fill: white;
+  font-size: 16pt;
+  letter-spacing: 0pt;
+  stroke-width: 0; 
 }
 
 .timebar line {
@@ -24,20 +51,19 @@ html, body {
   stroke-width: 1; 
 }
 
-.timebar-progress {
-  fill: #db0015;
+.timebar-line {
+  fill: white;
+  -webkit-svg-shadow: 1px 1px 2px rgba(66, 66, 66, .3);
 }
 
 .timebar-box {
-  stroke: #bbbbba;
-  stroke-width: 1; 
   fill: white;
+  -webkit-svg-shadow: 1px 1px 2px rgba(66, 66, 66, .3);
 }
 
 .clock {
   height: 25px;
-  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: bold;
+  font: font_general,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1em;
   color: #888;
 }
@@ -63,13 +89,52 @@ html, body {
 }
 
 .statbar-text {
-  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: bold;
-  stroke: #ccc; 
+  fill: white;
 }
 
 .statbar-val {
-  font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: normal;
   stroke: black; 
+}
+
+.dropdown, .start-button{
+  display:inline; 
+  margin-right: 20px;
+  background-color: #a1a48e;
+  border-radius: 12px;
+  padding: 10px;
+  letter-spacing: 3pt;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  text-decoration : none; 
+  color: white;
+}
+
+.dropdown-caret {
+  width: 33px;
+  height: 18px;
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.button-bar {
+  white-space:nowrap;
+  margin: 0;
+}
+
+.dropdown-menu {
+  background-color: #a1a48e;
+  color: white;
+}
+
+.start-button {
+  margin-right: 0;
+  background-color: #e66166;
+}
+
+.header-row {
+  margin-top: 4px;
+  margin-bottom: 16px;
 }

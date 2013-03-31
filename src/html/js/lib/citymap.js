@@ -9,8 +9,8 @@ CityMap = function(cityIdx, cities, topElm, midElm, botElm, promise, timeEventRe
 
   this.routeIdx = null;
   this.metrics = [
-    {name: "Avg Speed", range: [0, 100]},
-    {name: "Passengers", range: [0, 300]}
+    {name: "average speed", range: [0, 100]},
+    {name: "passengers", range: [0, 300]}
   ]
 
   this.setup();
@@ -52,7 +52,7 @@ CityMap.prototype.selectCity = function(city) {
 CityMap.prototype._selectCityCallback = function(err, routes) {
   this.routes = routes;
   this.routeSelector.setItems(routes, "name", "routeId");
-  this.selectRoute(routes[4]);
+  this.selectRoute(routes[3]);
 }
 
 CityMap.prototype.selectRoute = function(routeData) {

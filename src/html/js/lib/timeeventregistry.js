@@ -1,24 +1,27 @@
-TimeEventRegistry = function(clockElm) {
+TimeEventRegistry = function(clockElm, startDate, endDate) {
   this.clockElm = clockElm;
+  this.minTime = startDate.getTime();
+  this.maxTime = endDate.getTime();
   this.mockTime = new Date();
   this.events = [];
+  this.list = [];
   this.timeMultiplier = 20;
   this.eventCursor = 0;
   this.format = d3.time.format('%b %e %I:%M %p')
+  this.abc = 1;
 }
 
 TimeEventRegistry.prototype.register = function(time, func, endTime) {
-  var minTime = (new Date('2012-10-04 10:00')).getTime();
-  var maxTime = (new Date('2012-10-04 12:00')).getTime();
-  time = new Date(time);
-  endTime = new Date(endTime);
-  if((time.getTime() > minTime && time.getTime() < maxTime) && (endTime.getTime() > minTime && endTime.getTime() < maxTime)){
-    // alert(1);
+  
+
+  if((time.getTime() > this.minTime && time.getTime() < this.maxTime) && (endTime.getTime() > this.minTime && endTime.getTime() < this.maxTime)){
     this.events.push({
       "time": time,
       "endTime": new Date(endTime),
       "func": func
     })  
+  }else{
+    this.list.push([time.getTime(), endTime.getTime(), this.minTime, this.maxTime]);
   }
 }
 
@@ -52,9 +55,11 @@ TimeEventRegistry.prototype.run = function() {
   }
   this.timeCheckPoint = curTime;
   this.mockTime = newMockTime;
-  if(this.eventCursor < this.events.length) {
-    setInterval(bind(this, this.run), 500);  
+
+  if(newMockTime.getTime() <= this.maxTime) {
+    setTimeout(bind(this, this.run), 500);  
   }
+
 }
 
 TimeEventRegistry.prototype.getMultiplier = function() {

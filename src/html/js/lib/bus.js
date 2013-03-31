@@ -20,14 +20,19 @@ Bus.prototype.addBus = function() {
 
 Bus.prototype.registerTimeEvents = function() {
   var runs = this.busData.runs;
-
+  var format = d3.time.format('%Y-%m-%d %H:%M:%S')
   for(var i=0;i<runs.length; i++) {
     var run = runs[i];
-    this.timeEventRegistry.register(run["depart_time"], bind(this, this.moveBus, run),run["arrive_time"]);
+    if (run["arrive_time"] == null || run["depart_time"] == null) {
+      continue;
+    }
+    var departTime = format.parse(run["depart_time"]);
+    var arriveTime = format.parse(run["arrive_time"]);
+    this.timeEventRegistry.register(departTime, bind(this, this.moveBus, run, departTime, arriveTime), arriveTime);
   }
 }
 
-Bus.prototype.moveBus = function(run) {
+Bus.prototype.moveBus = function(run, departTime, arriveTime) {
   if(run["segment"] == null) {
     return;
   }
@@ -36,17 +41,14 @@ Bus.prototype.moveBus = function(run) {
   }
 
   var self = this;
-
   var segment = self.route.getSegment(run["segment"]);
+  var len = self.route.getSegmentLength(run["segment"]);
   var segmentData = self.route.getSegmentData(run["segment"]);
-  var len = segment.getTotalLength();
-  var timeDiff = new Date(run["arrive_time"]) - new Date(run["depart_time"]);
+
+  var timeDiff = arriveTime - departTime;
   var duration = (timeDiff) / this.timeEventRegistry.getMultiplier();
   var speed = 60 / (timeDiff/1000/60) * segmentData["distance"]/1000;
 
-  
-
-  // document.title = d3.geo.length(run["segment"]);
   if (!isNaN(speed)) {
     this.route.updateAvgSpeed(speed);  
   }

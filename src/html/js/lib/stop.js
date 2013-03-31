@@ -15,28 +15,35 @@ Stop.prototype.registerTimeEvents = function() {
   if (loads == null) {
     return;
   }
-  this.sortPickupTimes();
+  var format = d3.time.format('%Y-%m-%d %H:%M:%S')
+  // this.sortPickupTimes();
 
-  var lastTime = (new Date(loads[0]["pickup_time"])).getTime() - (1000 * 2)
+  var lastTime = new Date(format.parse(loads[0]["pickup_time"]).getTime() - (1000 * 2))
   for(var i=0;i<loads.length; i++) {
     var load = loads[i];
+    if (load["pickup_time"] == null) {
+      continue;
+    }
+    var pickupTime = format.parse(load["pickup_time"]);
+    var passengerCount = parseInt(load["count"], 10)
     this.timeEventRegistry
       .register(lastTime, 
-                bind(this, this.startWaiting, parseInt(load["count"]), new Date(lastTime), new Date(load["pickup_time"])),
-                load["pickup_time"]);
+                bind(this, this.startWaiting, passengerCount, lastTime, pickupTime),
+                pickupTime);
     this.timeEventRegistry
-      .register(load["pickup_time"], bind(this.route, this.route.updatePassengerCount, parseInt(load["count"])), load["pickup_time"]);
-    lastTime = load["pickup_time"];
+      .register(pickupTime, bind(this.route, this.route.updatePassengerCount, passengerCount), pickupTime);
+    lastTime = pickupTime;
   }
 }
 
-Stop.prototype.sortPickupTimes = function() {
-  this.stopData.passengerLoads.sort(function(eventA, eventB) {
-    x = new Date(eventA["pickup_time"]).getTime();
-    y = new Date(eventB["pickup_time"]).getTime();
-    return ((x < y) ? -1 : ((x > y) ?  1 : 0));
-  });
-}
+/* todo: move this to ruby */
+// Stop.prototype.sortPickupTimes = function() {
+//   this.stopData.passengerLoads.sort(function(eventA, eventB) {
+//     x = new Date(eventA["pickup_time"]).getTime();
+//     y = new Date(eventB["pickup_time"]).getTime();
+//     return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+//   });
+// }
 
 Stop.prototype.clear = function() {
   this.stopElm.remove();

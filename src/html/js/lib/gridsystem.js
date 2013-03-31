@@ -10,16 +10,14 @@ GridSystem = function(parent, cellCount, heightMultiplier) {
 }
 
 GridSystem.prototype.createRows = function() {
-  this.rows = [];
-  // for(var i=0;i<this.dimension;i++) {
-    this.rows.push(this.parent.append("div").classed("row-fluid", true));
-  // }
+  this.row = this.parent.append("div").classed("row-fluid", true);
 }
 
-GridSystem.prototype.createCells = function() {  
+GridSystem.prototype.createCells = function() { 
+
+
   this.cells = [];
   for(var i=0;i<this.cellCount;i++) {
-    // var row = this.rows[Math.floor(i/this.dimension)]
     var row = this.rows[0]
     this.cells.push(new GridCell(row, Math.floor(12/this.dimension), this.heightMultiplier));
   }
@@ -34,8 +32,7 @@ GridSystem.prototype.getGridCells = function() {
 GridCell = function(parent, size, heightMultiplier) {
   this.parent = parent;
   this.elm = this.parent.append("div").classed("span" + size + " grid_cell", true);
-  this.elm.style("height", (parseInt(this.elm.style("width")) * heightMultiplier) + "px");
-
+  this.elm.style("height", (parseInt(this.elm.style("width"), 10) * heightMultiplier) + "px");
 }
 
 GridCell.prototype.getElm = function() {

@@ -1,5 +1,5 @@
 [
-  {"prefix": "gen", "lbl": "Geneva", "val": 0, "img": "images/M-Geneva-50000-01-sm.jpg", "bounds": [[6.071, 46.244], [6.208, 46.15]]},
-  {"prefix": "sf", "lbl": "San Francisco", "val": 1, "img": "images/M-SF-50000-01-sm.jpg", "bounds": [[-122.515, 37.816], [-122.378, 37.707]]},
-  {"prefix": "zur", "lbl": "Zurich", "val": 2, "img": "images/M-Zurich-50000-01-sm.jpg", "bounds": [[8.462, 47.435], [8.599, 47.342]]}
+  {"prefix": "gen", "lbl": "Geneva", "val": 0, "img": "images/M-Geneva-50000-01-sm.jpg", "bounds": [[6.0713406, 46.2445366], [6.2080821, 46.1498928]]},
+  {"prefix": "sf", "lbl": "San Francisco", "val": 1, "img": "images/M-SF-50000-01-sm.jpg", "bounds": [[-122.5147635, 37.8156583], [-122.3784703, 37.7074557]]},
+  {"prefix": "zur", "lbl": "Zurich", "val": 2, "img": "images/M-Zurich-50000-01-sm.jpg", "bounds": [[8.4804643, 47.4345919], [8.6171598, 47.3420641 ]]}
 ]
