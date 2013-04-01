@@ -107,9 +107,6 @@ Route.prototype.updatePassengerCount = function(count) {
 }
 
 Route.prototype.updateRank = function() {
-  if(this.maxPassengers == 0 ) {
-    alert('[rasdfasd')
-  }
   var newRank = (this.avgSpeed/60* 50) + (this.passengerCount/this.maxPassengers * 50) - (this.avgWait/60 * 50);
   newRank = Math.round(newRank);
   if(newRank < 0) {
