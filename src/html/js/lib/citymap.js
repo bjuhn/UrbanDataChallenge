@@ -56,7 +56,6 @@ CityMap.prototype.selectCity = function(city) {
 CityMap.prototype._selectCityCallback = function(err, routes) {
   this.routes = routes;
   this.routeSelector.setItems(routes, "name", "routeId");
-  this.selectRoute(routes[3]);
 }
 
 CityMap.prototype.selectRoute = function(routeData) {
