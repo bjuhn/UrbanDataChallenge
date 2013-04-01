@@ -24,6 +24,7 @@ DropDown = function(elm, items, label) {
 
 DropDown.prototype.changeLabel = function(item, lbl) {
   lbl = lbl || item;
+  lbl = lbl.substring(0, 6);
   this.label.text(lbl);
 }
 

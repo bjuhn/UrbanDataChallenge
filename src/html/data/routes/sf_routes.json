@@ -1,5 +1,10 @@
   [
     {"name": "Test Route", "routeId": "test"},
-    {"name": "1 California", "routeId": "test2"},
-    {"name": "43 Masonic", "routeId": "test3"}
+    {"name": "9 San Bruno", "routeId": "9"},
+    {"name": "38 Geary", "routeId": "38"},
+    {"name": "41 Union", "routeId": "41"},
+    {"name": "43 Masonic", "routeId": "43"},
+    {"name": "44 O'Shaughnessy", "routeId": "44"},
+    {"name": "49 Van Ness - Mission", "routeId": "49"},
+    {"name": "71 Haight-Noriega", "routeId": "71"}
   ]

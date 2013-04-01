@@ -51,7 +51,7 @@ class GenevaBuses
     # puts @obj
     @obj.each{ |bus| 
       bus["runs"].each{|run|
-        stop = stops.lookup_feature_by_stopcode run["stopCode"]
+        stop = stops.lookup_feature_by_stopcode run["stopCode"], run["tripDirection"]
         run["coordinates"] = stop["geometry"]["coordinates"] if !stop.nil?
       }
     }
@@ -71,12 +71,10 @@ class GenevaBuses
           last = feature['geometry']['coordinates'].last()
           last = last.last() if last.last().kind_of?(Array)
           coords = [run['coordinates'][0], run['coordinates'][1]]
-          # puts "%s %s" % [first, coords]
-          # puts feature
-          if run["tripDirection"] == 'R' and (first[0] - coords[0]).abs < delta and (first[1] - coords[1]).abs < delta
+          if run["tripDirection"] == 'A' and (first[0] - coords[0]).abs < delta and (first[1] - coords[1]).abs < delta
             run["segment"] = i
             break
-          elsif run["tripDirection"] == 'A' and (last[0] - coords[0]).abs < delta and (last[1] - coords[1]).abs < delta
+          elsif run["tripDirection"] == 'R' and (last[0] - coords[0]).abs < delta and (last[1] - coords[1]).abs < delta
             run["segment"] = i
             break
           end

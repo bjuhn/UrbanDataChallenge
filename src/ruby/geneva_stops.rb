@@ -6,7 +6,6 @@ class GenevaStops
     incoming_obj = JSON.parse File.read(stopsfile)
     @obj = GenevaStops.filter_stops incoming_obj, route_id
     build_stops_by_code
-    add_passenger_loads if !buses.nil?
   end
 
   def self.filter_stops incoming_obj, route_id
@@ -32,12 +31,18 @@ class GenevaStops
   def build_stops_by_code
     @stops_by_code = {} 
     @obj.each{|feature| 
-      @stops_by_code[feature['properties']['stopCode']] = feature
+      @stops_by_code[feature['properties']['stopCode']+feature['properties']['routeDirection']] = feature
     }
   end
 
-  def lookup_feature_by_stopcode stop_code
-    lookup = @stops_by_code[stop_code]
+  def lookup_feature_by_stopcode stop_code, trip_direction
+    route_direction = if trip_direction == 'A'
+      "1"
+    else
+      "2"
+    end
+
+    lookup = @stops_by_code[stop_code+route_direction]
     if lookup.nil?
       puts "%s is nil " % [stop_code]
     end
@@ -48,17 +53,29 @@ class GenevaStops
     puts "begin: GenevaStops.add_passenger_loads"
     buses.get_buses.each{|bus|
       bus['runs'].each{ |run|
-        add_load run['stopCode'], run['on'], run['depart_time']
+        add_load run['stopCode'], run['on'], run['depart_time'], run['tripDirection']
       }
     }
+    sort_passenger_loads
     puts "end: GenevaStops.add_passenger_loads"
   end
 
-  def add_load stop_code, on_count, depart_time
-    stop = lookup_feature_by_stopcode stop_code
+  def add_load stop_code, on_count, depart_time, trip_direction
+    stop = lookup_feature_by_stopcode stop_code, trip_direction
     return if stop.nil?
     stop['passengerLoads'] = [] if stop['passengerLoads'].nil?
     stop['passengerLoads'].push({'pickup_time' => depart_time, 'count' => on_count})
+  end
+
+  def sort_passenger_loads
+    puts "begin: GenevaStops.sort_passenger_loads"
+    @obj.each{|feature| 
+      next if feature['passengerLoads'].nil?
+      feature['passengerLoads'] = feature['passengerLoads'].sort_by{|load|
+        load['pickup_time']
+      }
+    }
+    puts "end: GenevaStops.sort_passenger_loads"
   end
 
   def to_json

@@ -47,8 +47,11 @@ Route.prototype.reset = function() {
   this.stopData = null;
   this.route = null;
   this.avgSpeed = 0;
+  this.avgWait = 0;
+  this.maxPassengers = 0;
   this.passengerCount = 0;
   this.speedSets = 0;
+  this.waitSets = 0;
   this.buses = null;
   this.stops = null;
 }
@@ -86,7 +89,8 @@ Route.prototype.updateAvgSpeed = function(speed) {
   var newSets = this.speedSets + 1;
   this.avgSpeed = (this.avgSpeed * this.speedSets / newSets) + (speed * 1 / newSets);
   this.speedSets++;
-  this.events.fire("changeAvgSpeed", this.avgSpeed.toFixed(2));
+  this.updateRank();
+  this.events.fire("changeAvgSpeed", Math.round(this.avgSpeed));
 }
 
 Route.prototype.getSegment = function(idx) { 
@@ -102,10 +106,44 @@ Route.prototype.updatePassengerCount = function(count) {
   this.events.fire("changePassengers", this.passengerCount);
 }
 
+Route.prototype.updateRank = function() {
+  if(this.maxPassengers == 0 ) {
+    alert('[rasdfasd')
+  }
+  var newRank = (this.avgSpeed/60* 50) + (this.passengerCount/this.maxPassengers * 50) - (this.avgWait/60 * 50);
+  newRank = Math.round(newRank);
+  if(newRank < 0) {
+    newRank = 0;
+  }
+  this.events.fire("changeRank", newRank);
+}
+
+Route.prototype.updateWaitTime = function(avgTime) { 
+  var newSets = this.waitSets + 1;
+  this.avgWait = (this.avgWait * this.waitSets / newSets) + (avgTime * 1 / newSets);
+  this.waitSets++;
+  this.events.fire("changeWaitTime", Math.round(this.avgWait));
+}
+
 Route.prototype.getSegmentLength = function(idx) {
   var segment = this.getSegment(idx);
   if(typeof segment.totalLength == 'undefined') {
     segment.totalLength = this.getSegment(idx).getTotalLength();  
   }
   return segment.totalLength;
+}
+
+Route.prototype.getMaxPassengers = function() {
+  return this.maxPassengers;
+}
+
+Route.prototype.setMaxPassengers = function(max) {
+  this.maxPassengers = max;
+}
+
+
+
+
+Route.prototype.updateMaxPassengerCount = function(cnt) {
+  this.maxPassengers = this.maxPassengers + cnt;
 }

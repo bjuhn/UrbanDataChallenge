@@ -4,25 +4,22 @@ TimeEventRegistry = function(clockElm, startDate, endDate) {
   this.maxTime = endDate.getTime();
   this.mockTime = new Date();
   this.events = [];
-  this.list = [];
-  this.timeMultiplier = 20;
+  this.timeMultiplier = 120;
   this.eventCursor = 0;
   this.format = d3.time.format('%b %e %I:%M %p')
   this.abc = 1;
 }
 
 TimeEventRegistry.prototype.register = function(time, func, endTime) {
-  
-
   if((time.getTime() > this.minTime && time.getTime() < this.maxTime) && (endTime.getTime() > this.minTime && endTime.getTime() < this.maxTime)){
     this.events.push({
       "time": time,
       "endTime": new Date(endTime),
       "func": func
-    })  
-  }else{
-    this.list.push([time.getTime(), endTime.getTime(), this.minTime, this.maxTime]);
+    })
+    return true;
   }
+  return false;
 }
 
 TimeEventRegistry.prototype.sort = function() {

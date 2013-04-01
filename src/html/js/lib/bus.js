@@ -49,7 +49,7 @@ Bus.prototype.moveBus = function(run, departTime, arriveTime) {
   var duration = (timeDiff) / this.timeEventRegistry.getMultiplier();
   var speed = 60 / (timeDiff/1000/60) * segmentData["distance"]/1000;
 
-  if (!isNaN(speed)) {
+  if (!isNaN(speed) && speed < 100) {
     this.route.updateAvgSpeed(speed);  
   }
 

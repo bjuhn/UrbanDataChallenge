@@ -2,7 +2,7 @@ window.onload = function() {
   queue().defer(d3.json, "../../data/scheduled-arrivals.excerpt.json")
     .defer(d3.json, "../../data/sf.json")
     .defer(d3.json, "../../data/world-countries.json")
-    .defer(d3.json, "data/geneva_routes.json")
+    .defer(d3.json, "../../data/zurich_routes.json")
     .await(loadData);
 }
 
@@ -27,7 +27,7 @@ alert(1);
     promise.addCall(map, map.addFeatures, [sf.features, "city"], true);
     // promise.addCall(map, map.zoomTo, [sf.features[0].geometries], false);
 // alert(routes.geometries.length);
-    routeGeom = sf_routes["features"][0];
+    routeGeom = sf_routes.features[5]
     var route = new Route(routeGeom, map.getGElm(), map.getPath());
     promise.addCall(map, map.zoomTo, [routeGeom], false);
 

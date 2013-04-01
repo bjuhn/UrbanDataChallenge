@@ -11,15 +11,7 @@ function loadData(error, cityData) {
   var startDate = format.parse('2012-10-04 10:00');
   var endDate = format.parse('2012-10-04 12:00');
 
-
   d3.select("#start").on("click", start);
-  // var topGrid = new GridSystem(d3.select('#container'), cells, .11);
-  // var topCells = topGrid.getGridCells();
-  // var midGrid = new GridSystem(d3.select('#container'), cells, 1);
-  // var midCells = midGrid.getGridCells();
-  // var bottomGrid = new GridSystem(d3.select('#container'), cells, .4);
-  // var botCells = bottomGrid.getGridCells();
-
   var promise = new Promise();
   timeEventRegistry = new TimeEventRegistry(d3.select('#clock'), startDate, endDate);
   timeBar = new TimeBar(timeEventRegistry, d3.select('#timebar'), startDate, endDate);
@@ -36,6 +28,18 @@ function start() {
   for(var i=0;i<cityMaps.length;i++) {
     cityMaps[i].registerTimeEvents();
   }
+
+  var maxPassengers = 0;
+  for(var i=0;i<cityMaps.length;i++) {
+    var passengers = cityMaps[i].getMaxPassengers();
+    if (passengers > maxPassengers) {
+      maxPassengers = passengers;
+    }
+  }
+  for(var i=0;i<cityMaps.length;i++) {
+    cityMaps[i].setMaxPassengers(maxPassengers);
+  }
+
   timeEventRegistry.sort();
   timeBar.ready();
   timeEventRegistry.sort();
@@ -45,14 +49,20 @@ function start() {
 
 function sizeElement() {
   var pageWidth = parseInt(d3.select('body').style('width'), 10);
-  var sidebarWidth = 100;
 
   for(var i=0;i<3;i++) {
     var topCell = d3.select('#cell1-' + (i+1));
     var midCell = d3.select('#cell2-' + (i+1));
     var botCell = d3.select('#cell3-' + (i+1));
-    // topCell.style('height', (parseInt(topCell.style("width"), 10) * .11);
     midCell.style('height', parseInt(midCell.style("width"), 10) + "px");
-    // topCell.style('height', (parseInt(topCell.style("width"), 10) * .11); 
   }
+  var sideHeight = parseInt(d3.select('#container2').style('height'), 10);
+  d3.select('#sideLegend')
+    .style('height', sideHeight + "px");
+  var textHeight = parseInt(d3.select('.side-text').style('height'), 10);
+  d3.select('.side-text')
+    .style('top', (sideHeight/2 - textHeight/2) + "px");
+  d3.select('#sideLegend')
+  .style('height', (sideHeight - 2) + "px");
+
 }

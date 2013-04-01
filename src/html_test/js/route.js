@@ -47,7 +47,8 @@ Route.prototype.startAnimateBus = function() {
 
     .attrTween("transform", function(d,i) {
       return function(t) {
-        var p = self.route.node().getPointAtLength(self.len * t)
+         var a = t;
+        var p = self.route.node().getPointAtLength(self.len * a)
         return "translate(" + [p.x, p.y] + ")";
       }
     })
@@ -62,7 +63,7 @@ Route.prototype.startAnimateTestBus = function() {
     
     .attrTween("transform", function(d,i) {
       return function(t) {
-        var p = self.route.node().getPointAtLength(self.len * t)
+        var p = self.route.node().getPointAtLength(self.len * (1-t))
         document.title = "translate(" + [p.x, p.y] + ")";
        return "translate(" + [p.x, p.y] + ")";
       }

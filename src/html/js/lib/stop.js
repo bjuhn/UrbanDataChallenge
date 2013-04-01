@@ -18,20 +18,38 @@ Stop.prototype.registerTimeEvents = function() {
   var format = d3.time.format('%Y-%m-%d %H:%M:%S')
   // this.sortPickupTimes();
 
-  var lastTime = new Date(format.parse(loads[0]["pickup_time"]).getTime() - (1000 * 2))
+  var lastTime = null;
+  if(loads[0]["pickup_time"]) {
+    lastTime = new Date(format.parse(loads[0]["pickup_time"]).getTime() - (1000 * 2));
+  } 
+
   for(var i=0;i<loads.length; i++) {
     var load = loads[i];
     if (load["pickup_time"] == null) {
       continue;
     }
+    if(lastTime == null) {
+      lastTime = load["pickup_time"];
+      continue;
+    }
+
     var pickupTime = format.parse(load["pickup_time"]);
     var passengerCount = parseInt(load["count"], 10)
     this.timeEventRegistry
       .register(lastTime, 
                 bind(this, this.startWaiting, passengerCount, lastTime, pickupTime),
                 pickupTime);
-    this.timeEventRegistry
-      .register(pickupTime, bind(this.route, this.route.updatePassengerCount, passengerCount), pickupTime);
+    if(i>0) {
+      var used = this.timeEventRegistry
+        .register(pickupTime, bind(this.route, this.route.updatePassengerCount, passengerCount), pickupTime);
+      if(used) {
+        this.route.updateMaxPassengerCount(passengerCount);
+      }
+
+      var avgWaitTime = passengerCount * (pickupTime.getTime() - lastTime.getTime()) / 1000 / 60 / 2;
+      this.timeEventRegistry
+        .register(pickupTime, bind(this.route, this.route.updateWaitTime, avgWaitTime), pickupTime);        
+    }
     lastTime = pickupTime;
   }
 }

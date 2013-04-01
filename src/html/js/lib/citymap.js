@@ -9,8 +9,10 @@ CityMap = function(cityIdx, cities, topElm, midElm, botElm, promise, timeEventRe
 
   this.routeIdx = null;
   this.metrics = [
-    {name: "average speed", range: [0, 100]},
-    {name: "passengers", range: [0, 300]}
+    {name: "average speed", range: [0, 60], type: "km/h"},
+    {name: "passengers", range: [0, 300], type: ""},
+    {name: "est. wait time", range: [0, 60], type: "min"},
+    {name: "overall score", range: [0, 100], type: "", extras: {barHeight: 10, statBarClass: "overall-bar", fontClass: "overall-text", paddingTop: 15}}
   ]
 
   this.setup();
@@ -33,9 +35,12 @@ CityMap.prototype.setup = function() {
   this.baseMapImage = this.map.addImage(this.city["img"], this.city["bounds"]);
   this.map.zoomToBounds(this.city["bounds"], 0, 1);
   this.statBars = new StatBars(this.botElm, this.metrics);
+
   this.route = new Route(this.map.getGElm(), this.map.getPath(), this.timeEventRegistry, this.proj);
   this.route.bind("changeAvgSpeed", bind(this.statBars.getBar(0), this.statBars.getBar(0).update));
   this.route.bind("changePassengers", bind(this.statBars.getBar(1), this.statBars.getBar(1).update));
+  this.route.bind("changeWaitTime", bind(this.statBars.getBar(2), this.statBars.getBar(2).update));
+  this.route.bind("changeRank", bind(this.statBars.getBar(3), this.statBars.getBar(3).update));
 }
 
 CityMap.prototype.selectCity = function(city) {
@@ -74,4 +79,13 @@ CityMap.prototype._selectRouteCallback = function(err, buses, segments, stops) {
 
 CityMap.prototype.registerTimeEvents = function() {
   this.route.registerTimeEvents();
+}
+
+CityMap.prototype.getMaxPassengers = function() {
+  return this.route.getMaxPassengers();
+}
+
+CityMap.prototype.setMaxPassengers = function(max) {
+  this.route.setMaxPassengers(max);
+  this.statBars.getBar(1).setRange(0, max);
 }

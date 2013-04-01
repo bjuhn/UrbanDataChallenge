@@ -2,20 +2,22 @@ StatBars = function(elm, metrics) {
   this.elm = elm;
   this.metrics = metrics;
   this.bars = [];
-  this.barHeight = 20;
+  this.barHeight = 35;
   this.barOffset = 10;
   this.barLeftOffset = 10;
   this.svg = this.elm.append("svg")
               .classed("statbars", true)
-              .attr("height", metrics.length * (this.barHeight + this.barOffset));
+              .attr("height", metrics.length * (this.barHeight + this.barOffset) + 20);
 
   var w = parseInt(this.elm.style('width'), 10);  
   for(var i=0;i<metrics.length;i++) {
+    var extras = metrics[i].extras || {};
+    var paddingTop = extras.paddingTop || 0;
     var container = this.svg.append("g")
-      .attr("transform", "translate(" + this.barLeftOffset + "," + (this.barOffset + ((this.barHeight + this.barOffset) * i)) + ")")
+      .attr("transform", "translate(" + this.barLeftOffset + "," + (this.barOffset + ((this.barHeight + this.barOffset) * i) + paddingTop) + ")")
       .attr("height", this.barHeight)
-      .attr("width", w)
-      .attr("y", this.barOffset);
+      .attr("width", w);
+      // .attr("y", this.barOffset );
     this.bars.push(new StatBar(container, metrics[i], this.barHeight))
   }
 }
