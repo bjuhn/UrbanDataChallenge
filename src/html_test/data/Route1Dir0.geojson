@@ -1,0 +1,104 @@
+{
+"type": "FeatureCollection",
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -122.396997147722303, 37.795421146690892 ], [ -122.39701, 37.795418 ], [ -122.39798, 37.795303 ] ], [ [ -122.49237, 37.781672 ], [ -122.49223, 37.779744 ], [ -122.493055, 37.779726 ] ], [ [ -122.493067, 37.779691 ], [ -122.493224673489181, 37.779684803225365 ] ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -122.424029272023134, 37.791090498206792 ], [ -122.42416, 37.791073 ], [ -122.4258, 37.790868 ] ], [ [ -122.46456, 37.784989 ], [ -122.46455, 37.784784 ], [ -122.46363, 37.784828 ], [ -122.46347, 37.784846 ], [ -122.46349, 37.785123 ] ], [ [ -122.434034, 37.789834 ], [ -122.43384, 37.788897 ], [ -122.43508, 37.788737 ], [ -122.43549, 37.788692 ] ], [ [ -122.393532, 37.790492 ], [ -122.393418, 37.790608 ], [ -122.394941, 37.79184 ], [ -122.39651, 37.793089 ], [ -122.3963, 37.79325 ], [ -122.3964, 37.79366 ], [ -122.39659, 37.79458 ], [ -122.39677, 37.795463 ], [ -122.396997147722303, 37.795421146690892 ] ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.39659, 37.79458 ], [ -122.397604153846146, 37.794453230769264 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.397604153846146, 37.794453230769264 ], [ -122.39781, 37.794428 ], [ -122.398975, 37.794277 ], [ -122.40016, 37.794126 ], [ -122.400177571996153, 37.794123354729372 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.400177571996153, 37.794123354729372 ], [ -122.40131, 37.793984 ], [ -122.401541572526554, 37.793955285070425 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.401541572526554, 37.793955285070425 ], [ -122.40216, 37.793877 ], [ -122.402965, 37.79377 ], [ -122.40305745387866, 37.793758344676959 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.40305745387866, 37.793758344676959 ], [ -122.40402, 37.793637 ], [ -122.40462, 37.793557 ], [ -122.404840348172058, 37.793529271574307 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.404840348172058, 37.793529271574307 ], [ -122.40613, 37.79337 ], [ -122.406298467976654, 37.793349309142414 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.406298467976654, 37.793349309142414 ], [ -122.40664, 37.793307 ], [ -122.407287, 37.793227 ], [ -122.407379, 37.793218 ], [ -122.40758561900023, 37.793192462820251 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.40758561900023, 37.793192462820251 ], [ -122.40773, 37.793174 ], [ -122.408549, 37.793067 ], [ -122.40902, 37.793005 ], [ -122.409111015514227, 37.792995370469484 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.409111015514227, 37.792995370469484 ], [ -122.40936, 37.792969 ], [ -122.41101, 37.792756 ], [ -122.411860517539225, 37.792646161035236 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.411860517539225, 37.792646161035236 ], [ -122.41191, 37.79264 ], [ -122.41193, 37.79264 ], [ -122.41265, 37.792542 ], [ -122.414155769230746, 37.792354153846183 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.414155769230746, 37.792354153846183 ], [ -122.41429, 37.792337 ], [ -122.415118, 37.79223 ], [ -122.41553, 37.792177 ], [ -122.415750594211616, 37.792148751230101 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.415750594211616, 37.792148751230101 ], [ -122.415943, 37.792124 ], [ -122.4163, 37.792079 ], [ -122.417440852103852, 37.791936713133538 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.417440852103852, 37.791936713133538 ], [ -122.41758, 37.791919 ], [ -122.419222, 37.791696 ], [ -122.419523251283081, 37.791658594480353 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.419523251283081, 37.791658594480353 ], [ -122.42087, 37.791491 ], [ -122.421138797885376, 37.791457996628466 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.421138797885376, 37.791457996628466 ], [ -122.422278363714327, 37.791316499962853 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.422278363714327, 37.791316499962853 ], [ -122.42252, 37.791286 ], [ -122.424029272023134, 37.791090498206792 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -122.42612468130649, 37.790828057742118 ], [ -122.4258, 37.790868 ], [ -122.42599, 37.791751 ], [ -122.42435, 37.791956 ], [ -122.4227, 37.79217 ], [ -122.42106, 37.792375 ], [ -122.4194, 37.792588 ], [ -122.41777, 37.792802 ], [ -122.416115, 37.793007 ], [ -122.41448, 37.793221 ], [ -122.412836, 37.793425 ], [ -122.41211, 37.793523 ], [ -122.4112, 37.793639 ], [ -122.41037, 37.793737 ], [ -122.40995, 37.793799 ], [ -122.409901, 37.793799 ], [ -122.40955, 37.793844 ], [ -122.409202, 37.793888 ], [ -122.40872, 37.793951 ], [ -122.40791, 37.794057 ], [ -122.4073, 37.794129 ], [ -122.40683, 37.794191 ], [ -122.40631, 37.794262 ], [ -122.40567, 37.794342 ], [ -122.4048, 37.794449 ], [ -122.40315, 37.794662 ], [ -122.40238, 37.794769 ], [ -122.4015, 37.794831 ], [ -122.40138, 37.79484 ], [ -122.400465, 37.794956 ], [ -122.40034, 37.795009 ], [ -122.39916, 37.795161 ], [ -122.39798, 37.795303 ], [ -122.39781, 37.794428 ], [ -122.39761, 37.7935 ], [ -122.39739, 37.792403 ], [ -122.39582, 37.791144 ], [ -122.39428, 37.789921 ], [ -122.39359, 37.790447 ] ], [ [ -122.448467, 37.787042 ], [ -122.44866, 37.787977 ], [ -122.44717, 37.788122 ] ], [ [ -122.44711, 37.788131 ], [ -122.44697, 37.788186 ], [ -122.44679, 37.787256 ] ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.427495289993018, 37.790657608872223 ], [ -122.42745, 37.790663 ], [ -122.42612468130649, 37.790828057742118 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.428952344188005, 37.790467365066434 ], [ -122.427495289993018, 37.790657608872223 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.430610123995123, 37.790260623004869 ], [ -122.42909, 37.790449 ], [ -122.428952344188005, 37.790467365066434 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.432220250825338, 37.790060698110757 ], [ -122.43074, 37.790244 ], [ -122.430610123995123, 37.790260623004869 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.434330174096885, 37.789795352892277 ], [ -122.434034, 37.789834 ], [ -122.4336, 37.789887 ], [ -122.43239, 37.790039 ], [ -122.432220250825338, 37.790060698110757 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.435521330074508, 37.78885307744855 ], [ -122.43558, 37.789165 ], [ -122.43567, 37.78962 ], [ -122.434330174096885, 37.789795352892277 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.437473724509616, 37.788435294833704 ], [ -122.43713, 37.788478 ], [ -122.43549, 37.788692 ], [ -122.435521330074508, 37.78885307744855 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.440860303364602, 37.788007865995397 ], [ -122.44044, 37.788059 ], [ -122.43878, 37.788273 ], [ -122.437473724509616, 37.788435294833704 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.443623468812532, 37.787657293703788 ], [ -122.44212, 37.787854 ], [ -122.440860303364602, 37.788007865995397 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.4468970945411, 37.787242692812612 ], [ -122.44679, 37.787256 ], [ -122.445406, 37.787435 ], [ -122.44376, 37.78764 ], [ -122.443623468812532, 37.787657293703788 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.449947301562474, 37.786848720845477 ], [ -122.448467, 37.787042 ], [ -122.4468970945411, 37.787242692812612 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.453271664614348, 37.786427274132841 ], [ -122.45176, 37.786614 ], [ -122.45022, 37.78681 ], [ -122.45011, 37.786828 ], [ -122.449947301562474, 37.786848720845477 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.455198467557778, 37.786183089645405 ], [ -122.45505, 37.786203 ], [ -122.454772, 37.786239 ], [ -122.4534, 37.786408 ], [ -122.45328, 37.786426 ], [ -122.453271664614348, 37.786427274132841 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.45682705237563, 37.785978860540176 ], [ -122.45667, 37.785998 ], [ -122.455861, 37.786096 ], [ -122.455198467557778, 37.786183089645405 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.45928284561451, 37.78566223679681 ], [ -122.45917, 37.785676 ], [ -122.45805, 37.785819 ], [ -122.45696, 37.785962 ], [ -122.45682705237563, 37.785978860540176 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.462281771365951, 37.785276750182668 ], [ -122.46136, 37.7854 ], [ -122.4603, 37.785534 ], [ -122.45928284561451, 37.78566223679681 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.464928628341823, 37.784939684002978 ], [ -122.46456, 37.784989 ], [ -122.46349, 37.785123 ], [ -122.46243, 37.785257 ], [ -122.462281771365951, 37.785276750182668 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.466815404762542, 37.784706832819658 ], [ -122.46669, 37.784712 ], [ -122.46563, 37.784846 ], [ -122.464928628341823, 37.784939684002978 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.4691563096534, 37.784599820239478 ], [ -122.46884, 37.784613 ], [ -122.46776, 37.784667 ], [ -122.466815404762542, 37.784706832819658 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.470844780047202, 37.784521779830555 ], [ -122.4699, 37.784569 ], [ -122.4691563096534, 37.784599820239478 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.473245036057079, 37.784409726947558 ], [ -122.47311, 37.784416 ], [ -122.47258, 37.784443 ], [ -122.47205, 37.78447 ], [ -122.47098, 37.784515 ], [ -122.470844780047202, 37.784521779830555 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.475225605853396, 37.784315414322336 ], [ -122.47424, 37.784363 ], [ -122.473245036057079, 37.784409726947558 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.478442474769807, 37.784171409345653 ], [ -122.4775, 37.784219 ], [ -122.47642, 37.784264 ], [ -122.47536, 37.784309 ], [ -122.475225605853396, 37.784315414322336 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.481655603326985, 37.784028682010991 ], [ -122.48072, 37.784075 ], [ -122.47965, 37.78412 ], [ -122.478569, 37.784165 ], [ -122.478442474769807, 37.784171409345653 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.484817284419677, 37.783885670920441 ], [ -122.48393, 37.783923 ], [ -122.48287, 37.783977 ], [ -122.48179, 37.784022 ], [ -122.481655603326985, 37.784028682010991 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.488071543260986, 37.783739802582829 ], [ -122.48714, 37.783779 ], [ -122.486088, 37.783824 ], [ -122.485, 37.783878 ], [ -122.484817284419677, 37.783885670920441 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.490510798190527, 37.783627045359715 ], [ -122.49035, 37.783635 ], [ -122.489286, 37.78368 ], [ -122.48821, 37.783734 ], [ -122.488071543260986, 37.783739802582829 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.492499506820906, 37.783432887340098 ], [ -122.49251, 37.783536 ], [ -122.49143, 37.783581 ], [ -122.490510798190527, 37.783627045359715 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.492378089030197, 37.781805544045675 ], [ -122.492461, 37.782903 ], [ -122.492499506820906, 37.783432887340098 ] ] } }
+,
+{ "type": "Feature", "properties": { "LINEABBR": "001", "LINENAME": "1 CALIFORNIA", "LINEID": 7928, "SDE_ID": 7928.0, "INSERT_TIM": "2013\/01\/24", "SIGNUPID": 81.0 }, "geometry": { "type": "LineString", "coordinates": [ [ -122.493224673489181, 37.779684803225365 ], [ -122.4933, 37.779682 ], [ -122.49331, 37.779815 ], [ -122.49343, 37.781618 ], [ -122.49237, 37.781672 ], [ -122.492378089030197, 37.781805544045675 ] ] } }
+
+]
+}
