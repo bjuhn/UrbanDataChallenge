@@ -62,7 +62,7 @@ html, body {
 }
 
 .clock {
-  display: hidden;
+  visibility: hidden;
   height: 25px;
   font: font_general,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1em;
