@@ -105,18 +105,29 @@ html, body {
 
 .dropdown, .start-button{
   display:inline; 
+
+}
+
+.dropdown-menu {
+  margin-top: 12px;
+}
+
+.dropdown-toggle, .start-button {
   margin-right: 20px;
   background-color: #a1a48e;
   border-radius: 12px;
   padding: 10px;
   letter-spacing: 3pt;
   color: white;
+
+  text-decoration : none; 
+  color: white;
   cursor: pointer;
 }
 
-.dropdown-toggle {
-  text-decoration : none; 
-  color: white;
+.dropdown-toggle.disabled {
+  color: black;
+  cursor: default;
 }
 
 .dropdown-caret {
@@ -138,7 +149,13 @@ html, body {
 
 .start-button {
   margin-right: 0;
-  background-color: #e66166;
+  background-color: #e37177;
+  cursor: default;
+}
+
+.start-button.ready {
+  background-color: #dc1b16;
+  cursor: pointer;
 }
 
 .header-row {
@@ -151,6 +168,7 @@ html, body {
   height: 100%;
   color: white;
   margin-left: 10px;
+  margin-top: 2px;
 }
 
 .side-gradient{
@@ -162,14 +180,15 @@ html, body {
   margin-left: 0px !important;
   left: 0;
   top: 0;
-  background-color: #d02734;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(208, 39, 52)),to(rgb(255, 255, 255)));
-  background-image: -webkit-linear-gradient(top, rgb(208, 39, 52), rgb(255, 255, 255));
-  background-image: -moz-linear-gradient(top, rgb(208, 39, 52), rgb(255, 255, 255));
-  background-image: -o-linear-gradient(top, rgb(208, 39, 52), rgb(255, 255, 255));
-  background-image: -ms-linear-gradient(top, rgb(208, 39, 52), rgb(255, 255, 255));
-  background-image: linear-gradient(top, rgb(208, 39, 52), rgb(255, 255, 255));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#d02734', EndColorStr='#ffffff');
+
+background-color: #dc1b17;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(220, 27, 23)),to(rgb(255, 255, 255)));
+background-image: -webkit-linear-gradient(top, rgb(220, 27, 23), rgb(255, 255, 255));
+background-image: -moz-linear-gradient(top, rgb(220, 27, 23), rgb(255, 255, 255));
+background-image: -o-linear-gradient(top, rgb(220, 27, 23), rgb(255, 255, 255));
+background-image: -ms-linear-gradient(top, rgb(220, 27, 23), rgb(255, 255, 255));
+background-image: linear-gradient(top, rgb(220, 27, 23), rgb(255, 255, 255));
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc1b17', EndColorStr='#ffffff');
 }
 .side-100 {
   position: absolute;
@@ -243,3 +262,19 @@ html, body {
   top: 4px;
 }
 
+.loader {
+  background-color: black;
+  opacity: .7;
+  position: absolute;
+  display: none;
+}
+
+.loader img {
+  height: 40px;
+  width: 40px;
+  position: relative;
+}
+
+.span4 {
+  position: relative;
+}

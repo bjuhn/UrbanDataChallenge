@@ -1,13 +1,13 @@
 DropDown = function(elm, items, label) {
   this.container = elm.append("li")
     .classed("dropdown", true);
-  var e1 = this.container.append("span")
-    .attr("role", "buton")
+  this.spanElm = this.container.append("span")    
     .classed("dropdown-toggle", true)
     .attr("data-toggle", "dropdown")
-  this.label = e1.append("span")
+    .attr("role", "buton");
+  this.label = this.spanElm.append("span")
     .text(label);
-  e1.append("img")
+  this.spanElm.append("img")
     .attr("src", "images/carot.png")
     .classed("dropdown-caret", true)
     .attr("id", "drop1");
@@ -43,6 +43,17 @@ DropDown.prototype.setItems = function(items, labelKey, valKey) {
   this.items = [];
   for(var i=0;i<items.length;i++) {
     this.add(items[i][labelKey], items[i][valKey], items[i])
+  }
+}
+
+DropDown.prototype.toggle = function(on) {
+  if (on == true) {
+    this.spanElm.attr("role", "buton")
+      .classed('disabled', false)
+
+  }else{
+    this.spanElm.attr("role", "")
+      .classed('disabled', true)
   }
 }
 

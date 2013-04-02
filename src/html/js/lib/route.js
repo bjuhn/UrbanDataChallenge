@@ -138,9 +138,10 @@ Route.prototype.setMaxPassengers = function(max) {
   this.maxPassengers = max;
 }
 
-
-
-
 Route.prototype.updateMaxPassengerCount = function(cnt) {
   this.maxPassengers = this.maxPassengers + cnt;
+}
+
+Route.prototype.isSet = function () {
+  return (this.route) ? true: false;
 }

@@ -6,7 +6,7 @@ CityMap = function(cityIdx, cities, topElm, midElm, botElm, promise, timeEventRe
   this.botElm = botElm;
   this.promise = promise;
   this.timeEventRegistry = timeEventRegistry;
-
+  this.events = new EventRegistry();
   this.routeIdx = null;
   this.metrics = [
     {name: "average speed", range: [0, 60], type: "km/h"},
@@ -14,12 +14,12 @@ CityMap = function(cityIdx, cities, topElm, midElm, botElm, promise, timeEventRe
     {name: "est. wait time", range: [0, 60], type: "min"},
     {name: "overall score", range: [0, 100], type: "", extras: {barHeight: 10, statBarClass: "overall-bar", fontClass: "overall-text", paddingTop: 15}}
   ]
-
   this.setup();
   this.selectCity(this.cities[cityIdx]);
 }
 
 CityMap.prototype.setup = function() {
+  this.createLoader();
   this.header = new MapHeader(this.topElm);
   this.citySelector = new DropDown(this.header.getElm(), this.cities, 'City');
   this.citySelector.bind("onselect", bind(this, this.selectCity));
@@ -43,7 +43,13 @@ CityMap.prototype.setup = function() {
   this.route.bind("changeRank", bind(this.statBars.getBar(3), this.statBars.getBar(3).update));
 }
 
+CityMap.prototype.bind = function(eventName, func) {
+  this.events.bind(eventName, func);
+}
+
+
 CityMap.prototype.selectCity = function(city) {
+  this.loading(true);
   this.citySelector.changeLabel(city.lbl);
   this.baseMapImage.remove();
   this.city = city;
@@ -56,9 +62,12 @@ CityMap.prototype.selectCity = function(city) {
 CityMap.prototype._selectCityCallback = function(err, routes) {
   this.routes = routes;
   this.routeSelector.setItems(routes, "name", "routeId");
+  this.route.clear();
+  this.loading(false);
 }
 
 CityMap.prototype.selectRoute = function(routeData) {
+  this.loading(true);
   this.routeSelector.changeLabel(routeData.name);
   this.currentRouteData = routeData;
   var routeId = routeData["routeId"];
@@ -73,7 +82,12 @@ CityMap.prototype.selectRoute = function(routeData) {
 CityMap.prototype._selectRouteCallback = function(err, buses, segments, stops) {
   this.route.setRoute(this.currentRouteData, buses, segments, stops);
   this.map.zoomToFeature(segments, 1200, .95);
-  // promise.addCall(map, map.zoomTo, [segments, 1200, .95], false);
+  this.events.fire("routeSelected");
+  this.loading(false);
+}
+
+CityMap.prototype.getRoute = function() {
+  return this.route;
 }
 
 CityMap.prototype.registerTimeEvents = function() {
@@ -87,4 +101,39 @@ CityMap.prototype.getMaxPassengers = function() {
 CityMap.prototype.setMaxPassengers = function(max) {
   this.route.setMaxPassengers(max);
   this.statBars.getBar(1).setRange(0, max);
+}
+
+CityMap.prototype.createLoader = function(on) {
+  this.loaderElm = this.midElm.append('div')
+    .classed('loader', true)
+    .style("display", "none");
+  this.loaderElm.append('img').attr('src', 'images/loading-thumb.gif');
+}
+
+
+CityMap.prototype.loading = function(on) {
+  if (on) {
+    var img = this.loaderElm.select('img');
+    var svg = this.midElm.select('svg')
+    var pos = $(svg[0]).position()
+    var height = parseInt(svg.style('height'), 10);
+    var width = parseInt(svg.style('width'), 10);
+    var loaderImgHeight = parseInt(img.style('height'), 10);
+    var loaderImgWidth = parseInt(img.style('width'), 10);
+    img.style('top', (height/2 - loaderImgHeight/2) + 'px')
+      .style('left', (width/2 - loaderImgWidth/2) + 'px');
+
+    this.loaderElm
+      .style('width', (width) + "px")
+      .style('height', (height) + "px")
+      .style('top', 0 + "px")
+      .style('left', 0 + "px")
+      .style("display", "block");
+    this.citySelector.toggle(false);
+    this.routeSelector.toggle(false);
+  } else {
+    this.loaderElm.style("display", "none");
+    this.citySelector.toggle(true);
+    this.routeSelector.toggle(true);
+  }
 }
