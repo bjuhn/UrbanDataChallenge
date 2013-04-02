@@ -18,7 +18,6 @@ Map = function(container, proj) {
     .style("width", this.width + "px")
     .style("height", this.height + "px")
     .style("fill", 'url(#tile-water)');
-  this.addPattern('tile-water', 'images/ocean3.png', 1600, 982);
 }
 
 

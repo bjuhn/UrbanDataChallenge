@@ -110,6 +110,10 @@ CityMap.prototype.createLoader = function(on) {
   this.loaderElm.append('img').attr('src', 'images/loading-thumb.gif');
 }
 
+CityMap.prototype.toggleInteractive = function(on) {
+  this.citySelector.toggle(on);
+  this.routeSelector.toggle(on);
+}
 
 CityMap.prototype.loading = function(on) {
   if (on) {
@@ -129,11 +133,9 @@ CityMap.prototype.loading = function(on) {
       .style('top', 0 + "px")
       .style('left', 0 + "px")
       .style("display", "block");
-    this.citySelector.toggle(false);
-    this.routeSelector.toggle(false);
+    this.toggleInteractive(!on);
   } else {
     this.loaderElm.style("display", "none");
-    this.citySelector.toggle(true);
-    this.routeSelector.toggle(true);
+    this.toggleInteractive(!on);
   }
 }

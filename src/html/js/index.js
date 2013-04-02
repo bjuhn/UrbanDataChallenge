@@ -7,7 +7,7 @@ window.onload = function() {
 }
 
 function preLoader() {
-  preloads = "carot.png,legend-bottom.png,M-Geneva-50000-01-sm.jpg,M-SF-50000-01-sm.jpg,M-Zurich-50000-sm.jpg".split(",")
+  preloads = "carot.png,legend-bottom.png,M-Geneva-50000-01-sm.jpg,M-SF-50000-01-sm.jpg,M-Zurich-50000-01-sm.jpg".split(",")
   var tempImg = []
 
   for(var x=0;x<preloads.length;x++) {
@@ -33,7 +33,6 @@ function loadData(error, cityData) {
     var cityMap = new CityMap(0, cityData, topCell, midCell, botCell, promise, timeEventRegistry)
     cityMap.bind('routeSelected', bind(this, enableStart));
     cityMaps.push(cityMap);
-    
   }
 }
 
@@ -59,6 +58,10 @@ function start() {
   d3.select("#start")
     .on("click", null)
     .classed('ready', false);
+
+  for(var i=0;i<cityMaps.length;i++) {
+    cityMaps[i].toggleInteractive(false);
+  }
 
   for(var i=0;i<cityMaps.length;i++) {
     cityMaps[i].registerTimeEvents();

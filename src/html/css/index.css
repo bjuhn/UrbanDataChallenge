@@ -62,6 +62,7 @@ html, body {
 }
 
 .clock {
+  display: hidden;
   height: 25px;
   font: font_general,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1em;
@@ -126,7 +127,6 @@ html, body {
 }
 
 .dropdown-toggle.disabled {
-  color: black;
   cursor: default;
 }
 
