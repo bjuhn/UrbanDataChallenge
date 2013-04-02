@@ -1,4 +1,9 @@
 window.onload = function() {
+  var isMSIE = /*@cc_on!@*/0;
+  if (isMSIE) {
+    alert('Internet Explorer is not supported.  Please use Google Chome, Safari, or Firefox.');
+  }
+
   sizeElement();
   preLoader();
   queue()
