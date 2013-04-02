@@ -37,6 +37,7 @@ function loadData(error, cityData) {
     var botCell = d3.select('#cell3-' + (i+1));
     var cityMap = new CityMap(0, cityData, topCell, midCell, botCell, promise, timeEventRegistry)
     cityMap.bind('routeSelected', bind(this, enableStart));
+    cityMap.bind('citySelected', bind(this, enableStart));
     cityMaps.push(cityMap);
   }
 }

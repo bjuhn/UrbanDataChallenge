@@ -63,6 +63,7 @@ CityMap.prototype._selectCityCallback = function(err, routes) {
   this.routes = routes;
   this.routeSelector.setItems(routes, "name", "routeId");
   this.route.clear();
+  this.events.fire("citySelected");
   this.loading(false);
 }
 
