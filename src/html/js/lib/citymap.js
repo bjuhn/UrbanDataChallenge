@@ -68,6 +68,7 @@ CityMap.prototype._selectCityCallback = function(err, routes) {
 }
 
 CityMap.prototype.selectRoute = function(routeData) {
+  if(routeData.routeId == null) return;
   this.loading(true);
   this.routeSelector.changeLabel(routeData.name);
   this.currentRouteData = routeData;
