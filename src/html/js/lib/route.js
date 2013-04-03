@@ -124,7 +124,7 @@ Route.prototype.updateWaitTime = function(avgTime) {
 
 Route.prototype.getSegmentLength = function(idx) {
   var segment = this.getSegment(idx);
-  if(typeof segment.totalLength == 'undefined') {
+  if(segment && typeof segment.totalLength == 'undefined') {
     segment.totalLength = this.getSegment(idx).getTotalLength();  
   }
   return segment.totalLength;

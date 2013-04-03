@@ -8,6 +8,9 @@ Stop = function (stopData, gElm, proj, timeEventRegistry, route) {
   this.maxLoad = 4;
   this.size = .0012;
   this.makeStop();
+
+  this.circleScale = d3.scale.linear().domain([0, 20]).range([0, 7]);
+
 }
 
 Stop.prototype.registerTimeEvents = function() {
@@ -90,7 +93,7 @@ Stop.prototype.startWaiting = function(count, startTime, pickupTime) {
   this.stopElm.attr("r", this.size)
     .transition()
     .duration(duration)
-    .attr("r", size)
+    .attr("r", self.circleScale(size))
     .each("end", function() {
       self.stopElm
         .transition()
