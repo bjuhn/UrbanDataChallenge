@@ -9,7 +9,7 @@ Stop = function (stopData, gElm, proj, timeEventRegistry, route) {
   this.size = .0012;
   this.makeStop();
 
-  this.circleScale = d3.scale.linear().domain([0, 20]).range([0, 7]);
+  this.circleScale = d3.scale.linear().domain([0, 40]).range([.0012, .0042]).clamp(true);
 
 }
 
@@ -87,13 +87,11 @@ Stop.prototype.start = function() {
 
 Stop.prototype.startWaiting = function(count, startTime, pickupTime) {
   var duration = (pickupTime.getTime() - startTime.getTime()) / timeEventRegistry.getMultiplier();
-  var size = this.size + (this.size * (count/this.maxLoad));
   var self = this;
-  
   this.stopElm.attr("r", this.size)
     .transition()
     .duration(duration)
-    .attr("r", self.circleScale(size))
+    .attr("r", self.circleScale(count))
     .each("end", function() {
       self.stopElm
         .transition()
