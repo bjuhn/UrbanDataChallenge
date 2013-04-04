@@ -1,7 +1,7 @@
   [
-    {"name": "Route 1", "routeId": "1"},
-    {"name": "Route 5", "routeId": "5"},
-    {"name": "Route 11", "routeId": "11"},
-    {"name": "Route 22", "routeId": "22"},
-    {"name": "Route 23", "routeId": "23"}
+    {"name": "Nr. 1", "routeId": "1"},
+    {"name": "Nr. 5", "routeId": "5"},
+    {"name": "Nr. 11", "routeId": "11"},
+    {"name": "Nr. 22", "routeId": "22"},
+    {"name": "Nr. 23", "routeId": "23"}
   ]
