@@ -54,4 +54,22 @@ class ZurRoute
     }
   end
 
+  def get_segment_idx_by_stops from_code, to_code
+    # puts 'here'
+    @obj['features'].each_with_index{ |feature, i|
+      # puts 'here2'
+      props = feature['properties']
+      return nil if !props.has_key? 'FromStopID' or !props.has_key? 'ToStopID'
+      
+      if props["FromStopID"].to_s == from_code.to_s and props["ToStopID"].to_s == to_code.to_s
+        puts "%s : %s : %s : %s" % [props["FromStopID"], from_code, to_code, props["ToStopID"]]
+        return i, nil
+      elsif props["toStopCode"].to_s == from_code.to_s and props["ToStopID"].to_s == to_code.to_s
+        puts "%s : %s : %s : %s" % [props["FromStopID"], from_code, to_code, props["ToStopID"]]
+        return i, true
+      end
+    }
+    nil
+  end
+
 end

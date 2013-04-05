@@ -6,8 +6,9 @@ class SFBuses
 
     load_bus_info stop_csv.get_route_stops(route_code)
     get_stop_lat_lngs stops
+    sort_bus_runs
+    add_to_stop_info
     get_segment_ids route
-    fill_arrivals
   end
 
   def load_bus_info line_stops
@@ -64,26 +65,9 @@ class SFBuses
     puts "begin: SFBuses.get_segment_ids"
     @obj.each{ |bus| 
       bus["runs"].each{|run|
-        i = 0
-        route.get_features.each{ |feature|
-          next if run['coordinates'].nil?
-          delta = 0.001
-          first = feature['geometry']['coordinates'].first()
-          first = first.first() if first.first().kind_of?(Array)
-          last = feature['geometry']['coordinates'].last()
-          last = last.last() if last.last().kind_of?(Array)
-          coords = [run['coordinates'][0], run['coordinates'][1]]
-          if run["tripDirection"] == "1" and (first[0].to_f - coords[0].to_f).abs < delta and (first[1].to_f - coords[1].to_f).abs < delta
-            puts 'found'
-            run["segment"] = i
-            break
-          elsif run["tripDirection"] == "0" and (last[0].to_f - coords[0].to_f).abs < delta and (last[1].to_f - coords[1].to_f).abs < delta
-            puts 'found'
-            run["segment"] = i
-            break
-          end
-          i = i + 1
-        }
+        puts run['stopCode'] + " : " + run['toStopCode']
+        run["segment"], backwards = route.get_segment_idx_by_stops run['stopCode'], run['toStopCode']
+        run["backwards"] = true if backwards == true
       }
     }
     puts "end: SFBuses.get_segment_ids"  
@@ -99,6 +83,30 @@ class SFBuses
       }
     }
     puts "end: SFBuses.fill_arrivals"
+  end
+
+  def sort_bus_runs
+    puts "begin: GenevaBuses.sort_bus_stops"
+    @obj.each{|bus| 
+      bus['runs'] = bus['runs'].sort_by{|run|
+        run['depart_time']
+      }
+    }
+    puts "end: GenevaBuses.sort_bus_stops"
+  end
+
+  def add_to_stop_info
+    @obj.each{|bus| 
+      to_stop = nil
+      to_arrive_time = nil
+      bus['runs'] = bus['runs'].reverse_each{|run|
+        run['toStopCode'] = to_stop
+        run['arrive_time'] = to_arrive_time
+        to_stop = run['stopCode']
+        to_arrive_time = run['depart_time']
+      }
+      bus['runs'].pop
+    }
   end
 
 end
