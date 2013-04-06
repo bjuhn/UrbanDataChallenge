@@ -35,7 +35,7 @@ function loadData(error, cityData) {
     var topCell = d3.select('#cell1-' + (i+1));
     var midCell = d3.select('#cell2-' + (i+1));
     var botCell = d3.select('#cell3-' + (i+1));
-    var cityMap = new CityMap(0, cityData, topCell, midCell, botCell, promise, timeEventRegistry)
+    var cityMap = new CityMap(1, cityData, topCell, midCell, botCell, promise, timeEventRegistry)
     cityMap.bind('routeSelected', bind(this, enableStart));
     cityMap.bind('citySelected', bind(this, enableStart));
     cityMaps.push(cityMap);
