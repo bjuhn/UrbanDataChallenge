@@ -24,8 +24,8 @@ function preLoader() {
 function loadData(error, cityData) {
   var cells = 3;
   var format = d3.time.format("%Y-%m-%d %H:%M");
-  var startDate = format.parse('2012-10-04 10:00');
-  var endDate = format.parse('2012-10-04 12:00');
+  var startDate = format.parse('2012-10-01 06:00');
+  var endDate = format.parse('2012-10-01 24:00');
 
   var promise = new Promise();
   timeEventRegistry = new TimeEventRegistry(d3.select('#clock'), startDate, endDate);
@@ -60,7 +60,8 @@ function enableStart() {
 }
 
 function start() {
-
+  var range = timeBar.getDateRange()
+  timeEventRegistry.setDateRange(range[0], range[1]);
   d3.select("#start")
     .on("click", null)
     .classed('ready', false);

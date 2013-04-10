@@ -4,7 +4,7 @@ TimeEventRegistry = function(clockElm, startDate, endDate) {
   this.maxTime = endDate.getTime();
   this.mockTime = new Date();
   this.events = [];
-  this.timeMultiplier = 120;
+  this.timeMultiplier = 30;
   this.eventCursor = 0;
   this.format = d3.time.format('%b %e %I:%M %p')
   this.abc = 1;
@@ -69,4 +69,9 @@ TimeEventRegistry.prototype.getStartDate = function() {
 
 TimeEventRegistry.prototype.getEndDate = function() {
   return this.events[this.events.length - 1]["endTime"]; 
+}
+
+TimeEventRegistry.prototype.setDateRange = function(startDate, endDate) {
+  this.minTime = startDate.getTime();
+  this.maxTime = endDate.getTime();
 }

@@ -34,7 +34,7 @@ html, body {
 }
 
 .timebar {
-  height: 80px;
+  height: 160px;
   margin: 0;
   padding: 0;
 }
@@ -52,13 +52,31 @@ html, body {
 }
 
 .timebar-line {
-  fill: white;
+  fill: #dc1b17;
   -webkit-svg-shadow: 1px 1px 2px rgba(66, 66, 66, .3);
 }
 
 .timebar-box {
   fill: white;
   -webkit-svg-shadow: 1px 1px 2px rgba(66, 66, 66, .3);
+}
+
+.timebar-day {
+  cursor: pointer;
+}
+
+.timebar-dayline {
+  fill: white;
+  -webkit-svg-shadow: 1px 1px 2px rgba(66, 66, 66, .3);
+}
+
+.timebar-dayline.selected {
+  fill: #dc1b17;
+}
+
+.timebar-slider {
+  fill: white;
+  cursor: pointer;
 }
 
 .clock {
@@ -126,7 +144,7 @@ html, body {
   cursor: pointer;
 }
 
-.dropdown-toggle.disabled {
+.disabled {
   cursor: default;
 }
 
@@ -175,7 +193,7 @@ html, body {
   width: 10px;
   height: 100%;
   position: absolute;
-  background-color: red;
+  background-color: #dc1b17;
   padding-left: 0px !important;
   margin-left: 0px !important;
   left: 0;
