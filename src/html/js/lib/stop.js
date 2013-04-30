@@ -37,7 +37,10 @@ Stop.prototype.registerTimeEvents = function() {
     }
 
     var pickupTime = format.parse(load["pickup_time"]);
-    var passengerCount = parseInt(load["count"], 10)
+    var passengerCount = parseInt(load["count"], 10);
+    if(isNaN(passengerCount)) {
+      passengerCount = 0;
+    }
     this.timeEventRegistry
       .register(lastTime, 
                 bind(this, this.startWaiting, passengerCount, lastTime, pickupTime),
@@ -50,8 +53,10 @@ Stop.prototype.registerTimeEvents = function() {
       }
 
       var avgWaitTime = passengerCount * (pickupTime.getTime() - lastTime.getTime()) / 1000 / 60 / 2;
-      this.timeEventRegistry
-        .register(pickupTime, bind(this.route, this.route.updateWaitTime, avgWaitTime), pickupTime);        
+      if(!isNaN(avgWaitTime)){
+        this.timeEventRegistry
+          .register(pickupTime, bind(this.route, this.route.updateWaitTime, avgWaitTime), pickupTime);          
+      }
     }
     lastTime = pickupTime;
   }
