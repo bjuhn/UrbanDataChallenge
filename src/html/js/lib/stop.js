@@ -9,7 +9,7 @@ Stop = function (stopData, gElm, proj, timeEventRegistry, route) {
   this.size = .0012;
   this.makeStop();
 
-  this.circleScale = d3.scale.linear().domain([0, 40]).range([.0012, .0042]).clamp(true);
+  this.circleScale = d3.scale.linear().domain([0, 40]).range([.0012, .0072]).clamp(true);
 
 }
 
